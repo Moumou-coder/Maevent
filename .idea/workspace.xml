@@ -2,17 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f3b84260-98f3-4d40-ba51-32df81875fe4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/MaeventApp.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/screen/AddEventScreen.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/screen/DetailsEventScreen.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/screen/HomeScreen.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/screen/LoadingScreen.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/screen/ProfileScreen.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/screen/RegisterScreen.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/screen/SettingScreen.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/screen/SignInScreen.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/logo/myEventLogo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screen/LoadingScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screen/LoadingScreen.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,8 +34,11 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="TODO_SCOPE" value="All Places" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -54,6 +50,8 @@
       <option name="presentableId" value="Default" />
       <updated>1633594501243</updated>
       <workItem from="1633594503694" duration="377000" />
+      <workItem from="1634041632726" duration="2694000" />
+      <workItem from="1634581514977" duration="7140000" />
     </task>
     <servers />
   </component>
@@ -70,6 +68,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
