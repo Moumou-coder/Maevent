@@ -4,9 +4,11 @@ import { StyleSheet, Text, View } from 'react-native';
 
 //importation des différentes activités
 import LoadingScreen from "./screen/LoadingScreen"
+import SignInScreen from "./screen/SignInScreen"
 
 
-let content = <LoadingScreen />
+// let content = <LoadingScreen />
+let content = <SignInScreen />
 
 export default function App() {
   return (

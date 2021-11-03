@@ -6,7 +6,7 @@ const LoadingScreen = props => {
     return(
         <View style={styles.container}>
             <View>
-                <Image source={require('../assets/logo/myEventLogo.png')} />
+                <Image source={require('../assets/logo/MaeventLogo.png')} />
             </View>
         </View>
     );
