@@ -8,11 +8,13 @@ const SignInScreen = props => {
 
     const [isSecureEntry, setIsSecureEntry] = useState(true)
 
+    //TODO: verifier si la couleur mauve convient ou devrions nous changer de couleurs ?
     return(
         <KeyboardAvoidingView style={styles.container} behavior={"height"} >
             <View style={styles.imageContainer}>
                 <Image source={require('../assets/logo/MaeventLogo.png')} />
             </View>
+            //TODO: add some logic error message
             <View>
                 <View style={styles.input}>
                     <MaterialCommunityIcons name="account-circle-outline" size={25} color="black" style={styles.icons}/>
@@ -44,6 +46,7 @@ const SignInScreen = props => {
                     />
                 </View>
             </View>
+            //TODO: rectifier color hover of buttons : sign in and register
             <View style={styles.loginContainer}>
                 <Button
                     style={styles.loginButton}
@@ -108,3 +111,4 @@ const styles = StyleSheet.create({
 });
 
 export default SignInScreen;
+

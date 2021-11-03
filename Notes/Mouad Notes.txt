@@ -1,4 +1,0 @@
-Sign in :
-<Button mode={"text"} onPress={() => console.log("new account register button")}>
-                    Register
-                </Button>

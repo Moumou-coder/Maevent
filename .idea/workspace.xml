@@ -3,9 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="f3b84260-98f3-4d40-ba51-32df81875fe4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Notes/Mouad Notes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Notes/Mouad Notes.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Notes/Mouad Notes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Notes/Mouad.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screen/AddEventScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screen/AddEventScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screen/DetailsEventScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screen/DetailsEventScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screen/HomeScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screen/HomeScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screen/ProfileScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screen/ProfileScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screen/RegisterScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screen/RegisterScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screen/SettingScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screen/SettingScreen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/screen/SignInScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screen/SignInScreen.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -62,7 +67,7 @@
       <workItem from="1634041632726" duration="2694000" />
       <workItem from="1634581514977" duration="7140000" />
       <workItem from="1634626805523" duration="1239000" />
-      <workItem from="1635958009659" duration="11663000" />
+      <workItem from="1635958009659" duration="12634000" />
     </task>
     <servers />
   </component>
