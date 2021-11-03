@@ -1,10 +1,13 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Image, KeyboardAvoidingView, StyleSheet, Text, View} from 'react-native';
 import {Button, TextInput} from "react-native-paper";
 import {MaterialCommunityIcons, MaterialIcons} from '@expo/vector-icons'
 
 
 const SignInScreen = props => {
+
+    const [isSecureEntry, setIsSecureEntry] = useState(true)
+
     return(
         <KeyboardAvoidingView style={styles.container} behavior={"height"} >
             <View style={styles.imageContainer}>
@@ -29,9 +32,14 @@ const SignInScreen = props => {
                         mode={"flat"}
                         label={"Password"}
                         placeholder={"********"}
-                        right={<TextInput.Icon name={"eye"}/>}
-                        secureTextEntry={true}
                         theme={{ colors: {background: "transparent"} }}
+                        secureTextEntry={isSecureEntry}
+                        right={<TextInput.Icon
+                            name={isSecureEntry ? "eye-off" : 'eye'}
+                            onPress={() => {
+                                setIsSecureEntry(prev => !prev)
+                            }}
+                        />}
                         required
                     />
                 </View>
@@ -49,7 +57,12 @@ const SignInScreen = props => {
                 <Text style={{color:'black'}}>
                     First time here ?
                 </Text>
-                <Button mode={"text"} onPress={() => console.log("new account register button")}>
+                <Button
+                    mode={"text"}
+                    onPress={() => console.log("new account register button")}
+                    compact={true}
+                    uppercase={false}
+                >
                     Register
                 </Button>
             </View>
