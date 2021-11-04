@@ -1,23 +1,24 @@
 import React, {useState} from 'react';
 import {Image, KeyboardAvoidingView, StyleSheet, Text, View} from 'react-native';
 import {Button, TextInput} from "react-native-paper";
-import {MaterialCommunityIcons, MaterialIcons} from '@expo/vector-icons'
+import {AntDesign, MaterialIcons} from '@expo/vector-icons'
 
 
 const SignInScreen = props => {
 
     const [isSecureEntry, setIsSecureEntry] = useState(true)
 
-    //TODO: verifier si la couleur mauve convient ou devrions nous changer de couleurs ?
     return(
         <KeyboardAvoidingView style={styles.container} behavior={"height"} >
+            {/*TODO: verifier si la couleur mauve convient ou devrions nous changer de couleurs ?*/}
             <View style={styles.imageContainer}>
                 <Image source={require('../assets/logo/MaeventLogo.png')} />
+                <Text style={{marginTop:10}}>Welcome on Maevent</Text>
             </View>
-            //TODO: add some logic error message
+            {/*TODO: add some logic error message*/}
             <View>
                 <View style={styles.input}>
-                    <MaterialCommunityIcons name="account-circle-outline" size={25} color="black" style={styles.icons}/>
+                    <AntDesign name="mail" size={24} color="black" style={styles.icons}/>
                     <TextInput
                         style={{width: "85%"}}
                         mode={"flat"}
@@ -28,7 +29,7 @@ const SignInScreen = props => {
                     />
                 </View>
                 <View style={styles.input}>
-                    <MaterialIcons name="lock-outline" size={25} color="black" style={styles.icons} />
+                    <MaterialIcons name="lock-outline" size={24} color="black" style={styles.icons} />
                     <TextInput
                         style={{width: "85%"}}
                         mode={"flat"}
@@ -46,7 +47,7 @@ const SignInScreen = props => {
                     />
                 </View>
             </View>
-            //TODO: rectifier color hover of buttons : sign in and register
+            {/*TODO: rectifier color hover of buttons : sign in and register*/}
             <View style={styles.loginContainer}>
                 <Button
                     style={styles.loginButton}
@@ -55,6 +56,7 @@ const SignInScreen = props => {
                 >
                     Sign In
                 </Button>
+                {/*TODO: add the button text Forgot your password ?*/}
             </View>
             <View style={styles.registerContainer}>
                 <Text style={{color:'black'}}>
@@ -76,14 +78,15 @@ const SignInScreen = props => {
 const styles = StyleSheet.create({
     container: {
         flex:1,
-        flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
     },
     imageContainer: {
-        marginBottom : 30
+        marginBottom : 20,
+        alignItems:'center'
     },
     icons:{
+        marginTop:10,
         marginLeft: 5,
         marginRight: 10
     },
