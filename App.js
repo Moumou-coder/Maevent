@@ -9,8 +9,8 @@ import RegisterScreen from "./screen/RegisterScreen";
 
 
 // let content = <LoadingScreen />
-// let content = <SignInScreen />
-let content = <RegisterScreen />
+let content = <SignInScreen />
+// let content = <RegisterScreen />
 
 
 export default function App() {

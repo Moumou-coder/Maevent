@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, View, Image, ImageBackground} from 'react-native';
+import {Image, StyleSheet, View} from 'react-native';
 
 
 const LoadingScreen = props => {

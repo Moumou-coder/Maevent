@@ -1,19 +1,20 @@
 import React, {useState} from 'react';
 import {Image, KeyboardAvoidingView, StyleSheet, Text, View} from 'react-native';
-import {Button, TextInput} from "react-native-paper";
+import {TextInput} from "react-native-paper";
 import {AntDesign, MaterialIcons} from '@expo/vector-icons'
+import MyButton from "../components/MyButton";
+import MyButtonText from "../components/MyButtonText";
 
 
 const SignInScreen = props => {
 
     const [isSecureEntry, setIsSecureEntry] = useState(true)
 
-    return(
-        <KeyboardAvoidingView style={styles.container} behavior={"height"} >
-            {/*TODO: verifier si la couleur mauve convient ou devrions nous changer de couleurs ?*/}
+    return (
+        <KeyboardAvoidingView style={styles.container} behavior={"height"} keyboardVerticalOffset={10}>
             <View style={styles.imageContainer}>
-                <Image source={require('../assets/logo/MaeventLogo.png')} />
-                <Text style={{marginTop:10}}>Welcome on Maevent</Text>
+                <Image source={require('../assets/logo/MaeventLogo.png')}/>
+                <Text style={{marginTop: 10}}>Welcome on Maevent</Text>
             </View>
             {/*TODO: add some logic error message*/}
             <View>
@@ -24,18 +25,18 @@ const SignInScreen = props => {
                         mode={"flat"}
                         label={"Email"}
                         placeholder={"exemple@hotmail.com"}
-                        theme={{ colors: {background: "transparent"} }}
+                        theme={{colors: {background: "transparent"}}}
                         required
                     />
                 </View>
                 <View style={styles.input}>
-                    <MaterialIcons name="lock-outline" size={24} color="black" style={styles.icons} />
+                    <MaterialIcons name="lock-outline" size={24} color="black" style={styles.icons}/>
                     <TextInput
                         style={{width: "85%"}}
                         mode={"flat"}
                         label={"Password"}
                         placeholder={"********"}
-                        theme={{ colors: {background: "transparent"} }}
+                        theme={{colors: {background: "transparent"}}}
                         secureTextEntry={isSecureEntry}
                         right={<TextInput.Icon
                             name={isSecureEntry ? "eye-off" : 'eye'}
@@ -46,30 +47,31 @@ const SignInScreen = props => {
                         required
                     />
                 </View>
+                <View>
+                    <MyButtonText
+                        onPress={() => console.log("you forgot your password man ? ")}
+                        style={styles.buttonForgot}
+                    >
+                        Forgot Password ?
+                    </MyButtonText>
+                </View>
             </View>
-            {/*TODO: rectifier color hover of buttons : sign in and register*/}
             <View style={styles.loginContainer}>
-                <Button
-                    style={styles.loginButton}
-                    mode={"contained"} onPress={() => console.log("login Button")}
-                    uppercase={false}
+                <MyButton
+                    onPress={() => console.log("login Button")}
                 >
                     Sign In
-                </Button>
-                {/*TODO: add the button text Forgot your password ?*/}
+                </MyButton>
             </View>
             <View style={styles.registerContainer}>
-                <Text style={{color:'black'}}>
+                <Text style={{color: 'black'}}>
                     First time here ?
                 </Text>
-                <Button
-                    mode={"text"}
+                <MyButtonText
                     onPress={() => console.log("new account register button")}
-                    compact={true}
-                    uppercase={false}
                 >
                     Register
-                </Button>
+                </MyButtonText>
             </View>
         </KeyboardAvoidingView>
     );
@@ -77,40 +79,36 @@ const SignInScreen = props => {
 
 const styles = StyleSheet.create({
     container: {
-        flex:1,
+        flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
     },
     imageContainer: {
-        marginBottom : 20,
-        alignItems:'center'
+        marginBottom: 20,
+        alignItems: 'center'
     },
-    icons:{
-        marginTop:10,
+    icons: {
+        marginTop: 20,
         marginLeft: 5,
         marginRight: 10
     },
 
-    input:{
+    input: {
         flexDirection: 'row',
         alignItems: 'center',
-        marginBottom: 30
     },
-    loginContainer:{
-        marginTop: 20,
+    loginContainer: {
+        marginTop: 30,
     },
-    loginButton:{
-        borderRadius:25,
-        height:50,
-        width:250,
-        borderWidth :1,
-        justifyContent:'center'
-    },
-    registerContainer:{
+    registerContainer: {
         marginTop: 20,
         flexDirection: 'row',
         alignItems: 'center',
-    }
+    },
+    buttonForgot:{
+        paddingHorizontal: 1,
+        paddingVertical : 5,
+    },
 });
 
 export default SignInScreen;

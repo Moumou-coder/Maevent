@@ -2,6 +2,8 @@ import React, {useState} from 'react';
 import {Image, KeyboardAvoidingView, ScrollView, StyleSheet, Text, View} from 'react-native';
 import {Button, TextInput} from "react-native-paper";
 import {AntDesign, MaterialCommunityIcons, MaterialIcons} from '@expo/vector-icons'
+import MyButtonText from "../components/MyButtonText";
+import MyButton from "../components/MyButton";
 
 const RegisterScreen = props => {
 
@@ -78,28 +80,22 @@ const RegisterScreen = props => {
                         />
                     </View>
                 </View>
-                {/*TODO: redimensionner hover color des bouttons*/}
                 <View style={styles.registerContainer}>
-                    <Button
-                        style={styles.registerButton}
-                        mode={"contained"} onPress={() => console.log("Register Button")}
-                        uppercase={false}
+                    <MyButton
+                        onPress={() => console.log("Register Button")}
                     >
                         Register
-                    </Button>
+                    </MyButton>
                 </View>
                 <View style={styles.signInContainer}>
                     <Text style={{color:'black'}}>
                         Already have an account ?
                     </Text>
-                    <Button
-                        mode={"text"}
+                    <MyButtonText
                         onPress={() => console.log("login button")}
-                        compact={true}
-                        uppercase={false}
                     >
                         Sign In
-                    </Button>
+                    </MyButtonText>
                 </View>
                 </View>
             </ScrollView>
@@ -130,13 +126,6 @@ const styles = StyleSheet.create({
     },
     registerContainer:{
         marginTop: 20,
-    },
-    registerButton:{
-        borderRadius:25,
-        height:50,
-        width:250,
-        borderWidth :1,
-        justifyContent:'center'
     },
     signInContainer:{
         marginTop: 20,
