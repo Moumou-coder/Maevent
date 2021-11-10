@@ -2,10 +2,21 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
+//importation des different screens
+import LoadingScreen from "./screen/LoadingScreen"
+import SignInScreen from "./screen/SignInScreen"
+import RegisterScreen from "./screen/RegisterScreen";
+
+
+// let content = <LoadingScreen />
+let content = <SignInScreen />
+// let content = <RegisterScreen />
+
+
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+      {content}
       <StatusBar style="auto" />
     </View>
   );
@@ -14,8 +25,6 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: '#fffaf0',
   },
 });

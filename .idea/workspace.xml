@@ -2,17 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f3b84260-98f3-4d40-ba51-32df81875fe4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/MaeventApp.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/screen/AddEventScreen.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/screen/DetailsEventScreen.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/screen/HomeScreen.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/screen/LoadingScreen.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/screen/ProfileScreen.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/screen/RegisterScreen.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/screen/SettingScreen.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/screen/SignInScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/MyButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/MyButton.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/MyButtonText.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/MyButtonText.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screen/SignInScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screen/SignInScreen.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +22,14 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
   <component name="ProjectId" id="1zAcnPrxeh9aRDLlcL2aiAeehBG" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -41,8 +42,11 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="TODO_SCOPE" value="All Places" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -54,6 +58,15 @@
       <option name="presentableId" value="Default" />
       <updated>1633594501243</updated>
       <workItem from="1633594503694" duration="377000" />
+      <workItem from="1634041632726" duration="2694000" />
+      <workItem from="1634581514977" duration="7140000" />
+      <workItem from="1634626805523" duration="1239000" />
+      <workItem from="1635958009659" duration="13318000" />
+      <workItem from="1635982644967" duration="517000" />
+      <workItem from="1636019657246" duration="6907000" />
+      <workItem from="1636312248068" duration="1066000" />
+      <workItem from="1636316724535" duration="5472000" />
+      <workItem from="1636324432661" duration="336000" />
     </task>
     <servers />
   </component>
@@ -70,6 +83,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
