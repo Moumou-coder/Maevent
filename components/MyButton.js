@@ -1,6 +1,7 @@
 import React from 'react';
 import {StyleSheet,Text,View, TouchableOpacity} from 'react-native';
 
+import colors from "../constants/colors";
 
 const MyButton = props => {
     return(
@@ -19,7 +20,7 @@ const styles = StyleSheet.create({
         width: 250,
         paddingVertical: 14,
         paddingHorizontal: 24,
-        backgroundColor : '#8a2be2'
+        backgroundColor : colors.secondary
     },
     buttonText:{
         textAlign: 'center',

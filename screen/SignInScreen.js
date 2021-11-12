@@ -13,8 +13,8 @@ const SignInScreen = props => {
     return (
         <KeyboardAvoidingView style={styles.container} behavior={"height"} keyboardVerticalOffset={10}>
             <View style={styles.imageContainer}>
-                <Image source={require('../assets/logo/MaeventLogo.png')}/>
-                <Text style={{marginTop: 10}}>Welcome on Maevent</Text>
+                <Image source={require('../assets/logo/MaeventLogo_WT.png')}/>
+                <Text style={styles.text}>Welcome on Maevent</Text>
             </View>
             {/*TODO: add some logic error message*/}
             <View>
@@ -88,6 +88,11 @@ const styles = StyleSheet.create({
         marginBottom: 20,
         alignItems: 'center'
     },
+    text:{
+        fontSize : 22,
+        fontWeight : 'bold',
+        marginTop : 10
+    },
     icons: {
         marginTop: 20,
         marginLeft: 5,
@@ -99,7 +104,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     loginContainer: {
-        marginTop: 30,
+        marginTop: 50,
     },
     registerContainer: {
         marginTop: 20,

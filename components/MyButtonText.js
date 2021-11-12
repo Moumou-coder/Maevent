@@ -1,5 +1,6 @@
 import React from 'react';
 import {StyleSheet,Text,View, TouchableOpacity} from 'react-native';
+import colors from "../constants/colors";
 
 
 const MyButtonText = props => {
@@ -14,8 +15,7 @@ const MyButtonText = props => {
 
 const styles = StyleSheet.create({
     buttonText:{
-        color : '#0000ff',
-        fontWeight : 'bold',
+        color : colors.primary,
     }
 });
 

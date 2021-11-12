@@ -2,9 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f3b84260-98f3-4d40-ba51-32df81875fe4" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/assets/logo/MaeventLogo_WT.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/constants/colors.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/MyButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/MyButton.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/MyButtonText.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/MyButtonText.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screen/HomeScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screen/HomeScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screen/RegisterScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screen/RegisterScreen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/screen/SignInScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screen/SignInScreen.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -67,6 +73,7 @@
       <workItem from="1636312248068" duration="1066000" />
       <workItem from="1636316724535" duration="5472000" />
       <workItem from="1636324432661" duration="336000" />
+      <workItem from="1636701920397" duration="7074000" />
     </task>
     <servers />
   </component>

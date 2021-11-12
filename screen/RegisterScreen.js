@@ -16,8 +16,8 @@ const RegisterScreen = props => {
             <ScrollView showsVerticalScrollIndicator={false}>
                 <View style={styles.container}>
                 <View style={styles.imageContainer}>
-                    <Image source={require('../assets/logo/MaeventLogo.png')} />
-                    <Text style={{marginTop:10}}>Create your account </Text>
+                    <Image source={require('../assets/logo/MaeventLogo_WT.png')} />
+                    <Text style={styles.text}>Create your account </Text>
                 </View>
                 <View>
                     {/*TODO: error message*/}
@@ -109,9 +109,14 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     imageContainer: {
-        marginTop:20,
+        marginTop:30,
         marginBottom : 20,
         alignItems:'center'
+    },
+    text:{
+        marginTop : 10,
+        fontWeight  : 'bold',
+        fontSize : 22
     },
     icons:{
         marginTop:10,
