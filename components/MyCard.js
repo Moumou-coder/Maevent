@@ -5,6 +5,8 @@ import { Entypo, MaterialCommunityIcons, MaterialIcons   } from '@expo/vector-ic
 const MyCard = props => {
 
     return(
+        //TODO: rendre ça dynamique
+        //TODO: rajouter un effet shadow
         <View style={styles.cardContainer}>
             <View>
                 <Image source={require('../assets/zevent.jpg')} style={styles.imageEvent}/>
@@ -73,7 +75,7 @@ const styles = StyleSheet.create({
     },
     titleCard:{
         fontWeight: 'bold',
-        fontSize: 16
+        fontSize: 18
     },
     addressEvent:{
         color: '#4169e1'

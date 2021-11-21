@@ -12,6 +12,7 @@ const HomeScreen = props => {
                     <MaterialIcons name="add-circle-outline" size={30} color="black"/>
                 </TouchableOpacity>
             </View>
+            {/*TODO: créer une flatlist pour les card*/}
             <View>
                 <MyCard/>
             </View>
