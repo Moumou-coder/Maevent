@@ -1,32 +1,41 @@
 import React from 'react';
-import {StyleSheet,Text,View} from 'react-native';
-import MyButton from "../components/MyButton";
-
+import {Image, StyleSheet, TouchableOpacity, View} from 'react-native';
+import {MaterialIcons} from '@expo/vector-icons';
+import MyCard from "../components/MyCard";
 
 const HomeScreen = props => {
-    return(
-        <View style={styles.container}>
-            <MyButton style={styles.button}>
-                Testing
-            </MyButton>
-            <View style={{backgroundColor: '#c69c6d'}}>
-                <Text>
-                    ceci est un big test
-                </Text>
+    return (
+        <View style={styles.screenContainer}>
+            <View style={styles.headerContainer}>
+                <Image source={require('../assets/logo/Maevent_T.png')}/>
+                <TouchableOpacity onPress={() => console.log("rajouter une activité ")}>
+                    <MaterialIcons name="add-circle-outline" size={30} color="black"/>
+                </TouchableOpacity>
+            </View>
+            <View>
+                <MyCard/>
+            </View>
+            <View>
+                <MyCard/>
+            </View>
+            <View>
+                <MyCard/>
             </View>
         </View>
     );
 }
 
 const styles = StyleSheet.create({
-    container: {
+    screenContainer: {
         flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
     },
-    button :{
-        backgroundColor: '#930d8a'
-    }
+    headerContainer: {
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+        marginTop: 50,
+        marginBottom: 50
+    },
+    cardContainer: {}
 });
 
 export default HomeScreen;

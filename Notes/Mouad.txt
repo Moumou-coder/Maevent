@@ -1,0 +1,21 @@
+card test :
+
+{/*<View style={styles.cardContainer}>*/}
+            {/*    <Card>*/}
+            {/*        <View style={{flexDirection: 'row'}}>*/}
+            {/*            <Card.Cover source={{ uri: 'https://picsum.photos/700' }} style={{width:200}} />*/}
+            {/*            <Card.Content>*/}
+            {/*                <Title>Card title</Title>*/}
+            {/*                <Paragraph>Card content</Paragraph>*/}
+            {/*            </Card.Content>*/}
+            {/*        </View>*/}
+            {/*        <Card.Actions>*/}
+            {/*            <MyButtonText>*/}
+            {/*                Cancel*/}
+            {/*            </MyButtonText>*/}
+            {/*            <MyButtonText>*/}
+            {/*                save*/}
+            {/*            </MyButtonText>*/}
+            {/*        </Card.Actions>*/}
+            {/*    </Card>*/}
+            {/*</View>*/}
