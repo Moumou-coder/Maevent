@@ -10,6 +10,7 @@ import SignInScreen from "./screen/SignInScreen"
 import RegisterScreen from "./screen/RegisterScreen";
 import HomeScreen from "./screen/HomeScreen";
 import ProfileScreen from "./screen/ProfileScreen";
+import SettingScreen from "./screen/SettingScreen";
 
 
 
@@ -17,7 +18,8 @@ import ProfileScreen from "./screen/ProfileScreen";
 // let content = <SignInScreen />
 // let content = <RegisterScreen />
 // let content = <HomeScreen />
-let content = <ProfileScreen/>
+// let content = <ProfileScreen/>
+let content= <SettingScreen/>
 
 export default function App() {
   return (
