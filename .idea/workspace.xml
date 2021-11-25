@@ -2,11 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f3b84260-98f3-4d40-ba51-32df81875fe4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/screen/CommentEventScreen.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/GoogleMaps.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/MyButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/MyButton.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/constants/colors.js" beforeDir="false" afterPath="$PROJECT_DIR$/constants/colors.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Notes/Mouad.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Notes/Mouad.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screen/AddEventScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screen/AddEventScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screen/CommentEventScreen.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/screen/HomeScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screen/HomeScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screen/RegisterScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screen/RegisterScreen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/screen/SettingScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screen/SettingScreen.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -73,6 +76,9 @@
       <workItem from="1636979145557" duration="6541000" />
       <workItem from="1637500366095" duration="8397000" />
       <workItem from="1637525961360" duration="6929000" />
+      <workItem from="1637584469811" duration="4513000" />
+      <workItem from="1637832693729" duration="5062000" />
+      <workItem from="1637837814223" duration="4092000" />
     </task>
     <servers />
   </component>

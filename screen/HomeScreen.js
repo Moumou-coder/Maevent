@@ -22,6 +22,7 @@ const HomeScreen = props => {
             <View>
                 <MyCard/>
             </View>
+
         </View>
     );
 }
@@ -36,7 +37,6 @@ const styles = StyleSheet.create({
         marginTop: 50,
         marginBottom: 50
     },
-    cardContainer: {}
 });
 
 export default HomeScreen;

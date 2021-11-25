@@ -11,6 +11,7 @@ import RegisterScreen from "./screen/RegisterScreen";
 import HomeScreen from "./screen/HomeScreen";
 import ProfileScreen from "./screen/ProfileScreen";
 import SettingScreen from "./screen/SettingScreen";
+import AddEventScreen from "./screen/AddEventScreen";
 
 
 
@@ -19,7 +20,8 @@ import SettingScreen from "./screen/SettingScreen";
 // let content = <RegisterScreen />
 // let content = <HomeScreen />
 // let content = <ProfileScreen/>
-let content= <SettingScreen/>
+// let content = <SettingScreen/>
+let content = <AddEventScreen/>
 
 export default function App() {
   return (
