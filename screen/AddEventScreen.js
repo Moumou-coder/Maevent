@@ -15,7 +15,7 @@ import MyButton from "../components/MyButton";
 import colors from "../constants/colors";
 
 const deviceWidth = Dimensions.get('window').width
-console.log(deviceWidth)
+// console.log(deviceWidth)
 
 const AddEventScreen = props => {
     return (
@@ -36,6 +36,7 @@ const AddEventScreen = props => {
                                 required
                             />
                         </View>
+                        {/*TODO: ajouter image picker*/}
                         <View style={styles.inputContainer}>
                             <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
                                 <Text> Poster *</Text>
@@ -71,6 +72,7 @@ const AddEventScreen = props => {
                                 required
                             />
                         </View>
+                        {/*TODO: ajouter google maps - l'endroit apparait quand on rajoute une adresse dans la input adress (dynamiquement)*/}
                         <View style={styles.inputContainer}>
                             <Text> Google Maps ( localisation )</Text>
                             <View style={styles.poster}>
@@ -78,11 +80,12 @@ const AddEventScreen = props => {
                             </View>
                         </View>
                     </View>
+                    {/*TODO: ajouter la vérification du formulaire & la validation */}
                     <View style={styles.buttonsContainer}>
-                        <View style={{marginRight: 15}}>
+                        <View style={{marginRight: 20}}>
                             <MyButton style={styles.buttonSubmit}> Valider </MyButton>
                         </View>
-                        <View style={{marginLeft: 15}}>
+                        <View style={{marginLeft: 20}}>
                             <MyButton style={styles.buttonCancel}> Annuler </MyButton>
                         </View>
                     </View>
@@ -96,6 +99,7 @@ const styles = StyleSheet.create({
     container: {
         alignItems: 'center',
         marginTop: 40,
+        marginBottom: 70
     },
     imageContainer: {
         marginBottom: 30
@@ -123,14 +127,15 @@ const styles = StyleSheet.create({
     buttonsContainer: {
         flexDirection: 'row',
         alignItems: 'baseline',
-        marginBottom: 15
     },
     buttonCancel: {
         backgroundColor: colors.danger,
-        width: 150
+        width: 150,
+        marginBottom: 10
     },
     buttonSubmit: {
-        width: 150
+        width: 150,
+        marginBottom: 10
     }
 });
 
