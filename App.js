@@ -20,9 +20,9 @@ import TestScreen from "./screen/TestScreen";
 // let content = <LoadingScreen />
 // let content = <SignInScreen />
 // let content = <RegisterScreen />
-// let content = <HomeScreen />
+let content = <HomeScreen />
 // let content = <ProfileScreen/>
-let content = <SettingScreen/>
+// let content = <SettingScreen/>
 // let content = <AddEventScreen/>
 // let content = <DetailsEventScreen/>
 // let content = <TestScreen/>

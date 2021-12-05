@@ -1,9 +1,13 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Image, StyleSheet, TouchableOpacity, View} from 'react-native';
 import {MaterialIcons} from '@expo/vector-icons';
 import MyCard from "../components/MyCard";
+import ModalComments from "../components/ModalComments";
 
 const HomeScreen = props => {
+
+    const [isModalCommentsVisible, setIsModalCommentsVisible] = useState(false)
+
     return (
         <View style={styles.screenContainer}>
             <View style={styles.headerContainer}>
@@ -15,15 +19,14 @@ const HomeScreen = props => {
             {/*TODO: créer une flatlist pour les card*/}
             {/*todo: modal comment */}
             <View>
-                <MyCard/>
+                <MyCard
+                    onPressComment={() => setIsModalCommentsVisible(true)}
+                />
+                <ModalComments
+                    visible={isModalCommentsVisible}
+                    onPressBack={() => setIsModalCommentsVisible(false)}
+                />
             </View>
-            <View>
-                <MyCard/>
-            </View>
-            <View>
-                <MyCard/>
-            </View>
-
         </View>
     );
 }

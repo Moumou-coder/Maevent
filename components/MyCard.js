@@ -24,7 +24,7 @@ const MyCard = props => {
                 </View>
                 <View style={styles.actionsCard}>
                     {/*todo: voir si faire ou pas en fonction du temps, fct commentaires (amelioration)*/}
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={props.onPressComment}>
                         <MaterialCommunityIcons name="comment-outline" size={25} color="black" />
                     </TouchableOpacity>
                     <TouchableOpacity>

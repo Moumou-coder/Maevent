@@ -37,6 +37,7 @@ const SettingScreen = props => {
                     visible={isModalProfileVisible}
                     onPressClose={() => setIsModalProfileVisible(false)}
                     onPressSubmit={() => {console.log("submit the changes ")}}
+                    onPressPhoto={() => console.log("changer la photo de profil")}
                 />
                 <View style={styles.setting}>
                     <Text style={styles.settingLabel}> Notifications </Text>
