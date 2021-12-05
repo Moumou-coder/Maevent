@@ -2,10 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f3b84260-98f3-4d40-ba51-32df81875fe4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/components/ModalLanguage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/ModalProfile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screen/SettingScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screen/SettingScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ModalLanguage.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/ModalLanguage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ModalProfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/ModalProfile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/MyCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/MyCard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screen/DetailsEventScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screen/DetailsEventScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screen/HomeScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screen/HomeScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screen/LoadingScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screen/LoadingScreen.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,6 +81,7 @@
       <workItem from="1637845951407" duration="4420000" />
       <workItem from="1638445584933" duration="2329000" />
       <workItem from="1638694940810" duration="15638000" />
+      <workItem from="1638711839665" duration="427000" />
     </task>
     <servers />
   </component>

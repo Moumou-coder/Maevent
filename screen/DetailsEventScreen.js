@@ -15,6 +15,7 @@ const DetailsEventScreen = props => {
             <View style={styles.posterContainer}>
                 <ImageBackground source={require('../assets/zevent.jpg')} style={styles.posterEvent}>
                     <View style={styles.contentPosterContainer}>
+                        {/*todo: ajouter icon heart quand c'est deja rajoutee ou lors du clickEvent*/}
                         <TouchableOpacity style={styles.likeButton}>
                             <FontAwesome name="heart-o" size={35} color="white" />
                         </TouchableOpacity>
@@ -61,6 +62,7 @@ const DetailsEventScreen = props => {
                     pied-de-mouche (¶).
                 </Text>
             </View>
+            {/*todo: ajouter les fonctionnalités correspondantes + navigation*/}
             <View style={styles.buttonContainer}>
                 <MyButton
                     onPress={()=>{console.log("edit")}}

@@ -19,6 +19,8 @@ const ModalLanguage = props => {
                     <Text style={{fontSize: 20}}> Choisissez votre langue </Text>
                 </View>
             </View>
+            {/*TODO: FAIRE BOUGER LE LOGO EN FONCTION DU CHOIX*/}
+            {/*TODO: DONNER UN ID POUR CHAQUE LANGUE AVEC SWITCH CASE*/}
             <View>
                 <TouchableOpacity onPress={() => console.log('french')}>
                     <View style={styles.language} >

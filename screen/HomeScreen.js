@@ -13,6 +13,7 @@ const HomeScreen = props => {
                 </TouchableOpacity>
             </View>
             {/*TODO: créer une flatlist pour les card*/}
+            {/*todo: modal comment */}
             <View>
                 <MyCard/>
             </View>

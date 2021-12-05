@@ -23,10 +23,12 @@ const MyCard = props => {
                     <Text style={styles.participantTxt}>participants : x</Text>
                 </View>
                 <View style={styles.actionsCard}>
+                    {/*todo: voir si faire ou pas en fonction du temps, fct commentaires (amelioration)*/}
                     <TouchableOpacity>
                         <MaterialCommunityIcons name="comment-outline" size={25} color="black" />
                     </TouchableOpacity>
                     <TouchableOpacity>
+                        {/*todo: rajouter icon favorite (rempli) quand activity se retrouve déjà dans le profil*/}
                         <MaterialIcons name="favorite-outline" size={25} color="black" />
                     </TouchableOpacity>
                 </View>

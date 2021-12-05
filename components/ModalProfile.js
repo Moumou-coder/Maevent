@@ -17,6 +17,7 @@ const ModalProfile = props => {
                         onPress={props.onPressClose}
                     />
                     <Title> Modifier votre profil </Title>
+                    {/*todo: voir video passage de param modal */}
                     <Feather
                         name="check"
                         size={30}
