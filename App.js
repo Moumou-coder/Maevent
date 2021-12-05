@@ -13,6 +13,7 @@ import ProfileScreen from "./screen/ProfileScreen";
 import SettingScreen from "./screen/SettingScreen";
 import AddEventScreen from "./screen/AddEventScreen";
 import DetailsEventScreen from "./screen/DetailsEventScreen";
+import TestScreen from "./screen/TestScreen";
 
 
 
@@ -21,9 +22,10 @@ import DetailsEventScreen from "./screen/DetailsEventScreen";
 // let content = <RegisterScreen />
 // let content = <HomeScreen />
 // let content = <ProfileScreen/>
-// let content = <SettingScreen/>
+let content = <SettingScreen/>
 // let content = <AddEventScreen/>
-let content = <DetailsEventScreen/>
+// let content = <DetailsEventScreen/>
+// let content = <TestScreen/>
 
 export default function App() {
   return (

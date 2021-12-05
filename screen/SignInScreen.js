@@ -59,7 +59,7 @@ const SignInScreen = props => {
             <View style={styles.loginContainer}>
                 <MyButton
                     onPress={() => console.log("login Button")}
-                    style={styles.buttonLogin}
+                    // style={styles.buttonLogin}
                 >
                     Sign In
                 </MyButton>

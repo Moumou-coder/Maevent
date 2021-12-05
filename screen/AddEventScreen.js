@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
     Dimensions,
     Image,
@@ -13,11 +13,16 @@ import {TextInput} from "react-native-paper";
 import {MaterialIcons} from '@expo/vector-icons';
 import MyButton from "../components/MyButton";
 import colors from "../constants/colors";
+import DatePicker from "react-native-datepicker";
 
 const deviceWidth = Dimensions.get('window').width
 // console.log(deviceWidth)
 
 const AddEventScreen = props => {
+
+    // const [date, setDate] = useState('19-12-2021');
+    // const [time, setTime] = useState('00:00')
+
     return (
         <KeyboardAvoidingView style={{flex: 1}} behavior={"height"} keyboardVerticalOffset={10}>
             <ScrollView showsVerticalScrollIndicator={false}>
@@ -63,7 +68,37 @@ const AddEventScreen = props => {
                             />
                         </View>
                         <View style={styles.inputContainer}>
-                            <Text> Description : *</Text>
+                            <Text> Date : *</Text>
+                            <TextInput
+                                style={{width: "90%"}}
+                                mode={"outlined"}
+                                placeholder={"19/12/2021"}
+                                theme={{colors: {background: "transparent"}}}
+                                required
+                            />
+                        </View>
+                        <View style={styles.inputContainer}>
+                            <Text> Horaires : *</Text>
+                            <TextInput
+                                style={{width: "90%"}}
+                                mode={"outlined"}
+                                placeholder={"16h00 - 21h00"}
+                                theme={{colors: {background: "transparent"}}}
+                                required
+                            />
+                        </View>
+                        <View style={styles.inputContainer}>
+                            <Text> Prix : *</Text>
+                            <TextInput
+                                style={{width: "90%"}}
+                                mode={"outlined"}
+                                placeholder={"23€ adulte - 10€ enfant - gratuit enfant"}
+                                theme={{colors: {background: "transparent"}}}
+                                required
+                            />
+                        </View>
+                        <View style={styles.inputContainer}>
+                            <Text> Description : </Text>
                             <TextInput
                                 style={{width: "90%"}}
                                 mode={"outlined"}
