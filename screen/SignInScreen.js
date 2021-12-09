@@ -9,6 +9,10 @@ import MyButtonText from "../components/MyButtonText";
 const SignInScreen = props => {
 
     const [isSecureEntry, setIsSecureEntry] = useState(true)
+    //Navigation between screens
+    const registerNavigation = () => {
+        props.navigation.navigate('Register')
+    }
 
     return (
         <KeyboardAvoidingView style={styles.container} behavior={"height"} keyboardVerticalOffset={10}>
@@ -58,7 +62,7 @@ const SignInScreen = props => {
             </View>
             <View style={styles.loginContainer}>
                 <MyButton
-                    onPress={() => console.log("login Button")}
+                    onPress={() => props.navigation.navigate('HomeNavigator')}
                     // style={styles.buttonLogin}
                 >
                     Sign In
@@ -69,7 +73,7 @@ const SignInScreen = props => {
                     First time here ?
                 </Text>
                 <MyButtonText
-                    onPress={() => console.log("new account register button")}
+                    onPress={() => registerNavigation()}
                 >
                     Register
                 </MyButtonText>

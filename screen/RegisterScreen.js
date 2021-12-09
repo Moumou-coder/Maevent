@@ -10,6 +10,10 @@ const RegisterScreen = props => {
     const [isSecureEntry, setIsSecureEntry] = useState(true)
     const [isSecureEntryConfirm, setIsSecureEntryConfirm] = useState(true)
 
+    //Navigation between screens
+    const signInNavigation = () => {
+        props.navigation.navigate('SignIn')
+    }
 
     return (
         <KeyboardAvoidingView style={{flex: 1}} behavior={"height"} keyboardVerticalOffset={10}>
@@ -93,7 +97,7 @@ const RegisterScreen = props => {
                             Already have an account ?
                         </Text>
                         <MyButtonText
-                            onPress={() => console.log("login button")}
+                            onPress={() => signInNavigation()}
                         >
                             Sign In
                         </MyButtonText>
