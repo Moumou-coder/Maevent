@@ -8,11 +8,17 @@ import {Ionicons} from '@expo/vector-icons';
 const ProfileScreen = props => {
 
     const username = "ProfileName";
-
+    //Navigation to settings
+    const settingsNavigation = () => {
+        props.navigation.navigate('Settings')
+    }
     return (
         <View style={styles.container}>
             <View style={styles.profileContainer}>
-                <TouchableOpacity style={styles.settingContainer}>
+                <TouchableOpacity
+                    style={styles.settingContainer}
+                    onPress={() => settingsNavigation()}
+                >
                     <Ionicons name="ios-settings" size={30} color="black"/>
                 </TouchableOpacity>
                 <View style={styles.avatarContainer}>

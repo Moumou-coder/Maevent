@@ -2,25 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f3b84260-98f3-4d40-ba51-32df81875fe4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/IconBase/adaptive-icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/IconBase/icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/IconBase/splash.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/adaptive-iconM.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/iconM.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/splashM.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navigation/AppNavigator.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navigation/RoutersNavigator.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/screen/SearchScreen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Notes/Mouad.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Notes/Mouad.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/app.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/adaptive-icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/splash.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screen/RegisterScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screen/RegisterScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/MyCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/MyCard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navigation/RoutersNavigator.js" beforeDir="false" afterPath="$PROJECT_DIR$/navigation/RoutersNavigator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screen/DetailsEventScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screen/DetailsEventScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screen/HomeScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screen/HomeScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screen/ProfileScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screen/ProfileScreen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/screen/SignInScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screen/SignInScreen.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -99,7 +87,7 @@
       <workItem from="1638731547101" duration="3475000" />
       <workItem from="1638967459148" duration="1559000" />
       <workItem from="1639066901530" duration="3423000" />
-      <workItem from="1639070662230" duration="9727000" />
+      <workItem from="1639070662230" duration="13078000" />
     </task>
     <servers />
   </component>
