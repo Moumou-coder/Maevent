@@ -4,11 +4,11 @@
     "slug": "MaeventApp",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/iconM.png",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/splashM.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#fffaf0"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -21,8 +21,8 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#FFFFFF"
+        "foregroundImage": "./assets/adaptive-iconM.png",
+        "backgroundColor": "#fffaf0"
       }
     },
     "web": {

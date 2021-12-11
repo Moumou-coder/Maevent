@@ -8,9 +8,9 @@ const MyCard = props => {
         //TODO: rendre ça dynamique
         //TODO: rajouter un effet shadow
         <View style={styles.cardContainer}>
-            <View>
+            <TouchableOpacity onPress={props.onPressDetails}>
                 <Image source={require('../assets/zevent.jpg')} style={styles.imageEvent}/>
-            </View>
+            </TouchableOpacity>
             <View style={styles.contentCard}>
                 <View>
                     <Text style={styles.titleCard}> Card Title </Text>
