@@ -1,6 +1,6 @@
 import {StatusBar} from 'expo-status-bar';
-import React, {useState} from 'react';
-import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
+import React from 'react';
+import {SafeAreaView, StyleSheet} from 'react-native';
 
 import colors from "./constants/colors";
 import AppNavigator from "./navigation/AppNavigator";
@@ -17,6 +17,5 @@ export default function App() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: colors.accent
     },
 });

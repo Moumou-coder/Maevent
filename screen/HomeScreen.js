@@ -6,6 +6,7 @@ import ModalComments from "../components/ModalComments";
 
 const HomeScreen = props => {
 
+
     const [isModalCommentsVisible, setIsModalCommentsVisible] = useState(false)
     //Navigations
     const addingEvent = () => {

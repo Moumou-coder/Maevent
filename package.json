@@ -24,7 +24,8 @@
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
-    "@expo/vector-icons": "^12.0.5"
+    "@expo/vector-icons": "^12.0.5",
+    "expo-blur": "^10.0.3"
   },
   "private": true
 }
