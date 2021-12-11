@@ -12,6 +12,14 @@ const ProfileScreen = props => {
     const settingsNavigation = () => {
         props.navigation.navigate('Settings')
     }
+    const comments = () => {
+        props.navigation.navigate('Comments')
+    }
+    const detailsEvent = () => {
+        props.navigation.navigate('DetailsEvent')
+    }
+
+
     return (
         <View style={styles.container}>
             <View style={styles.profileContainer}>
@@ -33,7 +41,10 @@ const ProfileScreen = props => {
             </View>
             <ScrollView showsVerticalScrollIndicator={false}>
                 <View style={styles.cardContainer}>
-                    <MyCard/>
+                    <MyCard
+                        onPressComment={() => comments()}
+                        onPressDetails={() => detailsEvent()}
+                    />
                 </View>
             </ScrollView>
         </View>

@@ -10,7 +10,7 @@ import {
     View
 } from 'react-native';
 import {TextInput} from "react-native-paper";
-import {MaterialIcons} from '@expo/vector-icons';
+import {Ionicons, MaterialIcons} from '@expo/vector-icons';
 import MyButton from "../components/MyButton";
 import colors from "../constants/colors";
 import DatePicker from "react-native-datepicker";
@@ -23,12 +23,19 @@ const AddEventScreen = props => {
     // const [date, setDate] = useState('19-12-2021');
     // const [time, setTime] = useState('00:00')
 
+    //Navigations
+    const goBack = () =>{
+        props.navigation.goBack();
+    }
     return (
         <KeyboardAvoidingView style={{flex: 1}} behavior={"height"} keyboardVerticalOffset={10}>
             <ScrollView showsVerticalScrollIndicator={false}>
                 <View style={styles.container}>
                     <View style={styles.imageContainer}>
-                        <Image source={require('../assets/logo/Maevent_T.png')}/>
+                        <TouchableOpacity style={styles.backButton} onPress={() => goBack()}>
+                            <Ionicons name="arrow-back" size={35} color="black" style={{}} />
+                        </TouchableOpacity>
+                        <Image source={require('../assets/logo/Maevent_T.png')} style={{left: 55}}/>
                     </View>
                     <View>
                         <View style={styles.inputContainer}>
@@ -132,12 +139,12 @@ const AddEventScreen = props => {
 
 const styles = StyleSheet.create({
     container: {
-        alignItems: 'center',
         marginTop: 40,
         marginBottom: 70
     },
     imageContainer: {
-        marginBottom: 30
+        marginBottom: 30,
+        flexDirection: 'row',
     },
     inputContainer: {
         width: deviceWidth,
@@ -171,6 +178,9 @@ const styles = StyleSheet.create({
     buttonSubmit: {
         width: 150,
         marginBottom: 10
+    },
+    backButton:{
+        left: 20
     }
 });
 

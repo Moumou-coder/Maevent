@@ -10,6 +10,9 @@ const deviceWidth = Dimensions.get('window').width
 const deviceHeight = Dimensions.get('window').height
 
 const DetailsEventScreen = props => {
+    const goBack = () =>{
+        props.navigation.goBack();
+    }
     return (
         <ScrollView>
             <View style={styles.screenContainer}>
@@ -17,8 +20,11 @@ const DetailsEventScreen = props => {
                     <ImageBackground source={require('../assets/zevent.jpg')} style={styles.posterEvent}>
                         <View style={styles.contentPosterContainer}>
                             {/*todo: ajouter icon heart quand c'est deja rajoutee ou lors du clickEvent*/}
+                            <TouchableOpacity style={styles.backButton} onPress={() => goBack()}>
+                                <Ionicons name="arrow-back" size={35} color={colors.white} />
+                            </TouchableOpacity>
                             <TouchableOpacity style={styles.likeButton}>
-                                <FontAwesome name="heart-o" size={35} color="white"/>
+                                <FontAwesome name="heart-o" size={35} color={colors.white} />
                             </TouchableOpacity>
                             <TouchableOpacity style={styles.locationContent} activeOpacity={0.5}>
                                 <Entypo name="location-pin" size={24} color={colors.white}/>
@@ -165,6 +171,11 @@ const styles = StyleSheet.create({
         position: 'absolute',
         right: 30,
         top: 30,
+    },
+    backButton:{
+        position: 'absolute',
+        left: 15,
+        top: 25,
     }
 });
 

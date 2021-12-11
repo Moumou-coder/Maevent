@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 import {Image, StyleSheet, TouchableOpacity, View} from 'react-native';
 import {MaterialIcons} from '@expo/vector-icons';
 import MyCard from "../components/MyCard";
-import ModalComments from "../components/ModalComments";
 
 const HomeScreen = props => {
 
@@ -14,6 +13,9 @@ const HomeScreen = props => {
     }
     const detailsEvent = () => {
         props.navigation.navigate('DetailsEvent')
+    }
+    const comments = () => {
+        props.navigation.navigate('Comments')
     }
 
     return (
@@ -29,12 +31,8 @@ const HomeScreen = props => {
             {/*todo: modal comment */}
             <View>
                 <MyCard
-                    onPressComment={() => setIsModalCommentsVisible(true)}
+                    onPressComment={() => comments()}
                     onPressDetails={() => detailsEvent()}
-                />
-                <ModalComments
-                    visible={isModalCommentsVisible}
-                    onPressBack={() => setIsModalCommentsVisible(false)}
                 />
             </View>
         </View>
