@@ -62,7 +62,7 @@ const SignInScreen = props => {
             </View>
             <View style={styles.loginContainer}>
                 <MyButton
-                    onPress={() => props.navigation.navigate('HomeTab')}
+                    onPress={() => props.navigation.navigate('HomeLogin')}
                     // style={styles.buttonLogin}
                 >
                     Sign In
