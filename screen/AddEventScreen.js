@@ -111,7 +111,7 @@ const AddEventScreen = props => {
                                 mode={"outlined"}
                                 placeholder={"This is Event is ... "}
                                 theme={{colors: {background: "transparent"}}}
-                                required
+                                autoCorrect={true}
                             />
                         </View>
                         {/*TODO: ajouter google maps - l'endroit apparait quand on rajoute une adresse dans la input adress (dynamiquement)*/}

@@ -11,12 +11,10 @@ import colors from "./constants/colors";
 
 export default function App() {
     return (
-        <Provider store={store}>
             <SafeAreaView style={styles.container}>
                 <AppNavigator/>
                 <StatusBar style="auto"/>
             </SafeAreaView>
-        </Provider>
     );
 }
 
