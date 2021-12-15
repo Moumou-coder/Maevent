@@ -70,18 +70,18 @@ const RegisterScreen = props => {
                 {text: 'Okay'}
             ]);
         } else {
-            registerHandler();
+            handleRegister();
         }
     });
 
-    //SignUp firebase logic
-    const registerHandler = () => {
+    //Firebase SignUp
+    const handleRegister = () => {
         const auth = getAuth(app);
         createUserWithEmailAndPassword(auth, formState.inputValues.email, formState.inputValues.pass)
             .then((userCredential) => {
                 const user = userCredential.user;
+                // console.log("user email : " + user.email + " & userCredential : " + userCredential)
                 onToggleSnackBar()
-                console.log("user email : " + user.email + " & userCredential : " + userCredential)
                 setTimeout(() => {
                     signInNavigation()
                 }, 3000);
@@ -129,6 +129,7 @@ const RegisterScreen = props => {
                                 value={formState.inputValues.pseudo}
                                 onChangeText={inputsHandler.bind(this, 'pseudo')}
                                 theme={{colors: {background: "transparent"}}}
+                                autoComplete={'username'}
                                 required
                             />
                         </View>
@@ -143,6 +144,7 @@ const RegisterScreen = props => {
                                 onChangeText={inputsHandler.bind(this, 'email')}
                                 theme={{colors: {background: "transparent"}}}
                                 keyboardType={'email-address'}
+                                autoComplete={'email'}
                                 required
                             />
                         </View>
@@ -199,7 +201,7 @@ const RegisterScreen = props => {
                             Already have an account ?
                         </Text>
                         <MyButtonText
-                            onPress={() => signInNavigation()}
+                            onPress={signInNavigation}
                         >
                             Sign In
                         </MyButtonText>
