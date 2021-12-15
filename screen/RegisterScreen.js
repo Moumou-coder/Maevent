@@ -4,6 +4,8 @@ import {TextInput} from "react-native-paper";
 import {AntDesign, MaterialCommunityIcons, MaterialIcons} from '@expo/vector-icons'
 import MyButtonText from "../components/MyButtonText";
 import MyButton from "../components/MyButton";
+import { app } from '../firebase-config'
+import { getAuth, createUserWithEmailAndPassword} from "firebase/auth";
 
 /*Reducers hooks to manage states*/
 const FormInputPost = 'REGISTER_INPUT_POST';
@@ -68,7 +70,17 @@ const RegisterScreen = props => {
                 {text: 'Okay'}
             ]);
         } else {
-            signInNavigation();
+            const auth = getAuth(app);
+            createUserWithEmailAndPassword(auth, formState.inputValues.email, formState.inputValues.pass)
+                .then((userCredential) => {
+                    const user = userCredential.user;
+                    console.log("user email : " + user.email + " & userCredential : " + userCredential)
+                })
+                .catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    console.log(errorCode + " ********** " + errorMessage)
+                });
         }
     });
 
