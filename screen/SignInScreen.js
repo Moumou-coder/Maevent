@@ -1,18 +1,105 @@
-import React, {useState} from 'react';
-import {Image, KeyboardAvoidingView, StyleSheet, Text, View} from 'react-native';
+import React, {useCallback, useEffect, useReducer, useState} from 'react';
+import {Alert, Image, KeyboardAvoidingView, StyleSheet, Text, View} from 'react-native';
 import {TextInput} from "react-native-paper";
 import {AntDesign, MaterialIcons} from '@expo/vector-icons'
 import MyButton from "../components/MyButton";
 import MyButtonText from "../components/MyButtonText";
+import {getAuth, onAuthStateChanged, signInWithEmailAndPassword} from "firebase/auth";
+import {app} from '../firebase-config'
 
+//Reducer manage states of signIn
+const loginInputPost = 'LOGIN_INPUT_POST';
+const signInFormReducer = (state, action) => {
+    if (action.type === loginInputPost) {
+        const postValues = {
+            ...state.inputValues,
+            [action.input]: action.value
+        };
+        const postValidations = {
+            ...state.inputValidations,
+            [action.input]: action.isValid
+        };
+        let postFormIsValid = true;
+        for (const key in postValidations) {
+            postFormIsValid = postFormIsValid && postValidations[key];
+        }
+        return {
+            formIsValid: postFormIsValid,
+            inputValidations: postValidations,
+            inputValues: postValues,
+        };
+    }
+    return state;
+};
 
 const SignInScreen = props => {
+    //Form Reducer (states)
+    const [formState, formDispatch] = useReducer(signInFormReducer, {
+        inputValues: {
+            email: '',
+            password: '',
+        },
+        inputValidations: {
+            email: false,
+            password: false,
+        },
+        formIsValid: false
+    });
 
-    const [isSecureEntry, setIsSecureEntry] = useState(true)
+    //Form inputs handler
+    const inputsHandler = (inputIdentifier, text) => {
+        let isValid = false;
+        if (text.trim().length > 0) {
+            isValid = true;
+        }
+        formDispatch({
+            type: loginInputPost,
+            value: text,
+            isValid: isValid,
+            input: inputIdentifier
+        });
+    }
+
+    //Validation submit to signIn
+    const submitHandler = useCallback(() => {
+        if (!formState.formIsValid) {
+            Alert.alert('Form is not valid !', 'Please fill all the inputs :)', [
+                {text: 'Okay'}
+            ]);
+        } else {
+            handleLogin();
+        }
+    });
+
+    //Firebase SignIn
+    const handleLogin = () => {
+        const auth = getAuth(app);
+        signInWithEmailAndPassword(auth, formState.inputValues.email, formState.inputValues.password)
+            .then((userCredential) => {
+                const user = userCredential.user;
+                const userId = user.uid
+                console.log("user email : " + user.email + " & user id  : " + user.uid)
+                homeNavigation()
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                Alert.alert(errorCode, errorMessage, [
+                    {text: 'Okay'}
+                ]);
+            });
+    }
+
     //Navigation between screens
     const registerNavigation = () => {
         props.navigation.navigate('Register')
     }
+    const homeNavigation = () => {
+        props.navigation.replace('HomeLogin')
+    }
+
+    //show my password
+    const [isSecureEntry, setIsSecureEntry] = useState(true)
 
     return (
         <KeyboardAvoidingView style={styles.container} behavior={"height"} keyboardVerticalOffset={10}>
@@ -29,7 +116,11 @@ const SignInScreen = props => {
                         mode={"flat"}
                         label={"Email"}
                         placeholder={"exemple@hotmail.com"}
+                        value={formState.inputValues.email}
+                        onChangeText={inputsHandler.bind(this, 'email')}
                         theme={{colors: {background: "transparent"}}}
+                        keyboardType={'email-address'}
+                        autoComplete={'email'}
                         required
                     />
                 </View>
@@ -40,6 +131,8 @@ const SignInScreen = props => {
                         mode={"flat"}
                         label={"Password"}
                         placeholder={"********"}
+                        value={formState.inputValues.password}
+                        onChangeText={inputsHandler.bind(this, 'password')}
                         theme={{colors: {background: "transparent"}}}
                         secureTextEntry={isSecureEntry}
                         right={<TextInput.Icon
@@ -62,7 +155,7 @@ const SignInScreen = props => {
             </View>
             <View style={styles.loginContainer}>
                 <MyButton
-                    onPress={() => console.log("login user :")}
+                    onPress={submitHandler}
                 >
                     Sign In
                 </MyButton>
@@ -72,7 +165,7 @@ const SignInScreen = props => {
                     First time here ?
                 </Text>
                 <MyButtonText
-                    onPress={() => registerNavigation()}
+                    onPress={registerNavigation}
                 >
                     Register
                 </MyButtonText>
@@ -91,10 +184,10 @@ const styles = StyleSheet.create({
         marginBottom: 20,
         alignItems: 'center'
     },
-    text:{
-        fontSize : 22,
-        fontWeight : 'bold',
-        marginTop : 10
+    text: {
+        fontSize: 22,
+        fontWeight: 'bold',
+        marginTop: 10
     },
     icons: {
         marginTop: 20,
@@ -114,9 +207,9 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
     },
-    buttonForgot:{
+    buttonForgot: {
         paddingHorizontal: 1,
-        paddingVertical : 5,
+        paddingVertical: 5,
     },
 });
 

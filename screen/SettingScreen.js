@@ -1,17 +1,19 @@
 import React, {useState} from 'react';
-import {Dimensions, Image, Modal, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {Alert, Dimensions, Image, Modal, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {Switch} from 'react-native-paper';
 import MyButton from "../components/MyButton";
 import colors from "../constants/colors";
-import {AntDesign, MaterialIcons} from "@expo/vector-icons";
 import ModalLanguage from "../components/ModalLanguage";
 import ModalProfile from "../components/ModalProfile";
+import { getAuth, signOut } from "firebase/auth";
+import {app} from '../firebase-config'
+
 
 const deviceWidth = Dimensions.get('window').width
 const deviceHeight = Dimensions.get('window').height
 
 const SettingScreen = props => {
-
+    //states
     const [isNotificationSwitchOn, setIsNotificationSwitchOn] = useState(false);
     const onToggleSwitchNotification = () => setIsNotificationSwitchOn(!isNotificationSwitchOn);
 
@@ -21,6 +23,20 @@ const SettingScreen = props => {
     const [isModalLanguageVisible, setIsModalLanguageVisible] = useState(false)
     const [isModalProfileVisible, setIsModalProfileVisible] = useState(false)
 
+    //signOut
+    const handleSignOut = () => {
+        const auth = getAuth(app);
+        signOut(auth).then(() => {
+            testNavigation()
+        }).catch((error) => {
+            Alert.alert(error)
+        });
+    }
+
+    //navigation to root (signIn)
+    const testNavigation = () => {
+        props.navigation.replace('SignIn')
+    }
 
     return (
         <View style={styles.container}>
@@ -56,7 +72,11 @@ const SettingScreen = props => {
             <ModalLanguage visible={isModalLanguageVisible} onPress={() => setIsModalLanguageVisible(false)}/>
             <View style={styles.buttonsContainer}>
                 <View style={styles.buttonLogOutContainer}>
-                    <MyButton> Se déconnecter </MyButton>
+                    <MyButton
+                        onPress={handleSignOut}
+                    >
+                        Se déconnecter
+                    </MyButton>
                 </View>
                 <View style={styles.buttonDeleteContainer}>
                     <MyButton style={styles.buttonDelete}> Supprimer compte </MyButton>
