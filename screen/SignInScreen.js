@@ -1,10 +1,11 @@
-import React, {useCallback, useReducer, useState} from 'react';
+import React, {useCallback, useEffect, useReducer, useState} from 'react';
 import {Alert, Image, KeyboardAvoidingView, StyleSheet, Text, View} from 'react-native';
 import {TextInput} from "react-native-paper";
 import {AntDesign, MaterialIcons} from '@expo/vector-icons'
 import MyButton from "../components/MyButton";
 import MyButtonText from "../components/MyButtonText";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import {getAuth, onAuthStateChanged, signInWithEmailAndPassword} from "firebase/auth";
+import {app} from '../firebase-config'
 
 //Reducer manage states of signIn
 const loginInputPost = 'LOGIN_INPUT_POST';
@@ -32,7 +33,6 @@ const signInFormReducer = (state, action) => {
 };
 
 const SignInScreen = props => {
-
     //Form Reducer (states)
     const [formState, formDispatch] = useReducer(signInFormReducer, {
         inputValues: {
@@ -73,11 +73,12 @@ const SignInScreen = props => {
 
     //Firebase SignIn
     const handleLogin = () => {
-        const auth = getAuth();
+        const auth = getAuth(app);
         signInWithEmailAndPassword(auth, formState.inputValues.email, formState.inputValues.password)
             .then((userCredential) => {
                 const user = userCredential.user;
-                console.log("user email : " + user.email + " & userCredential : " + userCredential)
+                const userId = user.uid
+                console.log("user email : " + user.email + " & user id  : " + user.uid)
                 homeNavigation()
             })
             .catch((error) => {
@@ -154,7 +155,7 @@ const SignInScreen = props => {
             </View>
             <View style={styles.loginContainer}>
                 <MyButton
-                    onPress={handleLogin}
+                    onPress={submitHandler}
                 >
                     Sign In
                 </MyButton>
@@ -183,10 +184,10 @@ const styles = StyleSheet.create({
         marginBottom: 20,
         alignItems: 'center'
     },
-    text:{
-        fontSize : 22,
-        fontWeight : 'bold',
-        marginTop : 10
+    text: {
+        fontSize: 22,
+        fontWeight: 'bold',
+        marginTop: 10
     },
     icons: {
         marginTop: 20,
@@ -206,9 +207,9 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
     },
-    buttonForgot:{
+    buttonForgot: {
         paddingHorizontal: 1,
-        paddingVertical : 5,
+        paddingVertical: 5,
     },
 });
 

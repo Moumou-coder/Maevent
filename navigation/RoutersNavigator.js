@@ -39,6 +39,7 @@ export const AuthNavigator = () => {
             <AuthStackNavigator.Screen name={"SignIn"} component={SignInScreen}/>
             <AuthStackNavigator.Screen name={"Register"} component={RegisterScreen}/>
             <AuthStackNavigator.Screen name={"HomeLogin"} component={HomeNavigator}/>
+            <AuthStackNavigator.Screen name={"ProfileLogin"} component={Tab}/>
         </AuthStackNavigator.Navigator>
     );
 }

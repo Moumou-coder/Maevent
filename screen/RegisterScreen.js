@@ -80,7 +80,8 @@ const RegisterScreen = props => {
         createUserWithEmailAndPassword(auth, formState.inputValues.email, formState.inputValues.pass)
             .then((userCredential) => {
                 const user = userCredential.user;
-                // console.log("user email : " + user.email + " & userCredential : " + userCredential)
+                const userId = user.uid
+                console.log("user email : " + user.email + " & user id  : " + userId)
                 onToggleSnackBar()
                 setTimeout(() => {
                     signInNavigation()
