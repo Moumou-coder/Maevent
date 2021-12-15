@@ -1,6 +1,6 @@
 import React, {useCallback, useReducer, useState} from 'react';
 import {Alert, Image, KeyboardAvoidingView, ScrollView, StyleSheet, Text, View} from 'react-native';
-import {TextInput} from "react-native-paper";
+import {TextInput, Snackbar} from "react-native-paper";
 import {AntDesign, MaterialCommunityIcons, MaterialIcons} from '@expo/vector-icons'
 import MyButtonText from "../components/MyButtonText";
 import MyButton from "../components/MyButton";
@@ -66,23 +66,34 @@ const RegisterScreen = props => {
     //validation for the submit form
     const submitHandler = useCallback(() => {
         if (!formState.formIsValid || formState.inputValues.pass !== formState.inputValues.confirmPass) {
-            Alert.alert('Form is not valid !', 'Please check if you have filled all the inputs and the passwords are identical', [
+            Alert.alert('Form is not valid !', 'Please fill all the inputs and the passwords must be identical :) ', [
                 {text: 'Okay'}
             ]);
         } else {
-            const auth = getAuth(app);
-            createUserWithEmailAndPassword(auth, formState.inputValues.email, formState.inputValues.pass)
-                .then((userCredential) => {
-                    const user = userCredential.user;
-                    console.log("user email : " + user.email + " & userCredential : " + userCredential)
-                })
-                .catch((error) => {
-                    const errorCode = error.code;
-                    const errorMessage = error.message;
-                    console.log(errorCode + " ********** " + errorMessage)
-                });
+            registerHandler();
         }
     });
+
+    //SignUp firebase logic
+    const registerHandler = () => {
+        const auth = getAuth(app);
+        createUserWithEmailAndPassword(auth, formState.inputValues.email, formState.inputValues.pass)
+            .then((userCredential) => {
+                const user = userCredential.user;
+                onToggleSnackBar()
+                console.log("user email : " + user.email + " & userCredential : " + userCredential)
+                setTimeout(() => {
+                    signInNavigation()
+                }, 3000);
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                Alert.alert(errorCode, errorMessage, [
+                    {text: 'Okay'}
+                ]);
+            });
+    }
 
     //Navigation between screens
     const signInNavigation = () => {
@@ -91,6 +102,11 @@ const RegisterScreen = props => {
     //Show passwords
     const [isSecureEntry, setIsSecureEntry] = useState(true)
     const [isSecureEntryConfirm, setIsSecureEntryConfirm] = useState(true)
+
+    //show and dismiss snackbar
+    const [visibleBar, setVisibleBar] = useState(false);
+    const onToggleSnackBar = () => setVisibleBar(!visibleBar);
+    const onDismissSnackBar = () => setVisibleBar(false);
 
     return (
         <KeyboardAvoidingView style={{flex: 1}} behavior={"height"} keyboardVerticalOffset={10}>
@@ -188,6 +204,17 @@ const RegisterScreen = props => {
                             Sign In
                         </MyButtonText>
                     </View>
+                    <View style={styles.snackbarContainer}>
+                        <Snackbar
+                            visible={visibleBar}
+                            onDismiss={onDismissSnackBar}
+                            duration={2000}
+                            action={{
+                                label: 'Undo',
+                            }}>
+                            Congratulations ! You have been registered .
+                        </Snackbar>
+                    </View>
                 </View>
             </ScrollView>
         </KeyboardAvoidingView>
@@ -227,6 +254,13 @@ const styles = StyleSheet.create({
         marginTop: 20,
         flexDirection: 'row',
         alignItems: 'center',
+        marginBottom: 20
+    },
+    snackbarContainer:{
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+        height: 70
     }
 });
 
