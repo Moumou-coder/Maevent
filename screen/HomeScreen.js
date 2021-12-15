@@ -1,12 +1,13 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Image, StyleSheet, TouchableOpacity, View} from 'react-native';
 import {MaterialIcons} from '@expo/vector-icons';
 import MyCard from "../components/MyCard";
+import {getAuth} from "firebase/auth";
+import {app, db} from '../firebase-config'
+import { doc, getDoc } from "firebase/firestore";
 
 const HomeScreen = props => {
 
-
-    const [isModalCommentsVisible, setIsModalCommentsVisible] = useState(false)
     //Navigations
     const addingEvent = () => {
         props.navigation.navigate('AddEvent')

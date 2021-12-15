@@ -1,11 +1,12 @@
 import React, {useCallback, useReducer, useState} from 'react';
 import {Alert, Image, KeyboardAvoidingView, ScrollView, StyleSheet, Text, View} from 'react-native';
-import {TextInput, Snackbar} from "react-native-paper";
+import {Snackbar, TextInput} from "react-native-paper";
 import {AntDesign, MaterialCommunityIcons, MaterialIcons} from '@expo/vector-icons'
 import MyButtonText from "../components/MyButtonText";
 import MyButton from "../components/MyButton";
-import { app } from '../firebase-config'
-import { getAuth, createUserWithEmailAndPassword} from "firebase/auth";
+import {app, db} from '../firebase-config'
+import {createUserWithEmailAndPassword, getAuth} from "firebase/auth";
+import {doc, setDoc} from "firebase/firestore";
 
 /*Reducers hooks to manage states*/
 const FormInputPost = 'REGISTER_INPUT_POST';
@@ -78,14 +79,20 @@ const RegisterScreen = props => {
     const handleRegister = () => {
         const auth = getAuth(app);
         createUserWithEmailAndPassword(auth, formState.inputValues.email, formState.inputValues.pass)
-            .then((userCredential) => {
+            .then(async (userCredential) => {
                 const user = userCredential.user;
-                const userId = user.uid
-                console.log("user email : " + user.email + " & user id  : " + userId)
-                onToggleSnackBar()
-                setTimeout(() => {
-                    signInNavigation()
-                }, 3000);
+                // const userId = user.uid
+                const userEmail = user.email
+                // console.log("user email : " + user.email + " & user id  : " + userId)
+                setDoc(doc(db, "users", userEmail), {
+                    pseudo: formState.inputValues.pseudo,
+                    password: formState.inputValues.pass
+                }).then(() => {
+                    onToggleSnackBar()
+                    setTimeout(() => {
+                        signInNavigation()
+                    }, 2000);
+                })
             })
             .catch((error) => {
                 const errorCode = error.code;
@@ -113,6 +120,17 @@ const RegisterScreen = props => {
         <KeyboardAvoidingView style={{flex: 1}} behavior={"height"} keyboardVerticalOffset={10}>
             <ScrollView showsVerticalScrollIndicator={false}>
                 <View style={styles.container}>
+                    <View style={styles.snackbarContainer}>
+                        <Snackbar
+                            visible={visibleBar}
+                            onDismiss={onDismissSnackBar}
+                            duration={1000}
+                            action={{
+                                label: 'Undo',
+                            }}>
+                            Congratulations ! You have been registered .
+                        </Snackbar>
+                    </View>
                     <View style={styles.imageContainer}>
                         <Image source={require('../assets/logo/MaeventLogo_WT.png')}/>
                         <Text style={styles.text}>Create your account </Text>
@@ -207,17 +225,6 @@ const RegisterScreen = props => {
                             Sign In
                         </MyButtonText>
                     </View>
-                    <View style={styles.snackbarContainer}>
-                        <Snackbar
-                            visible={visibleBar}
-                            onDismiss={onDismissSnackBar}
-                            duration={2000}
-                            action={{
-                                label: 'Undo',
-                            }}>
-                            Congratulations ! You have been registered .
-                        </Snackbar>
-                    </View>
                 </View>
             </ScrollView>
         </KeyboardAvoidingView>
@@ -229,8 +236,15 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
     },
+    snackbarContainer: {
+        flex: 1,
+        marginTop: 25,
+        alignItems: 'center',
+        justifyContent: 'center',
+        height: 70
+    },
     imageContainer: {
-        marginTop: 30,
+        marginTop: 10,
         marginBottom: 20,
         alignItems: 'center'
     },
@@ -257,13 +271,6 @@ const styles = StyleSheet.create({
         marginTop: 20,
         flexDirection: 'row',
         alignItems: 'center',
-        marginBottom: 20
-    },
-    snackbarContainer:{
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
-        height: 70
     }
 });
 

@@ -1,10 +1,10 @@
-import React, {useCallback, useEffect, useReducer, useState} from 'react';
+import React, {useCallback, useReducer, useState} from 'react';
 import {Alert, Image, KeyboardAvoidingView, StyleSheet, Text, View} from 'react-native';
 import {TextInput} from "react-native-paper";
 import {AntDesign, MaterialIcons} from '@expo/vector-icons'
 import MyButton from "../components/MyButton";
 import MyButtonText from "../components/MyButtonText";
-import {getAuth, onAuthStateChanged, signInWithEmailAndPassword} from "firebase/auth";
+import {getAuth, signInWithEmailAndPassword} from "firebase/auth";
 import {app} from '../firebase-config'
 
 //Reducer manage states of signIn
@@ -78,7 +78,7 @@ const SignInScreen = props => {
             .then((userCredential) => {
                 const user = userCredential.user;
                 const userId = user.uid
-                console.log("user email : " + user.email + " & user id  : " + user.uid)
+                // console.log("user email : " + user.email + " & user id  : " + user.uid)
                 homeNavigation()
             })
             .catch((error) => {
