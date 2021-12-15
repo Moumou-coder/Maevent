@@ -54,3 +54,7 @@ import TestScreen from "./screen/TestScreen";
 // let content = <AddEventScreen/>
 // let content = <DetailsEventScreen/>
 // let content = <TestScreen/>
+
+Si nécessaire voici databaseURL firebase : databaseURL: 'https://maevent-app.firebaseio.com',
+
+pour le keyboardType --> date et heure :                                 keyboardType={'numeric'}

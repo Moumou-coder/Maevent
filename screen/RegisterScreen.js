@@ -1,19 +1,112 @@
-import React, {useState} from 'react';
-import {Image, KeyboardAvoidingView, ScrollView, StyleSheet, Text, View} from 'react-native';
-import {Button, TextInput} from "react-native-paper";
+import React, {useCallback, useReducer, useState} from 'react';
+import {Alert, Image, KeyboardAvoidingView, ScrollView, StyleSheet, Text, View} from 'react-native';
+import {TextInput, Snackbar} from "react-native-paper";
 import {AntDesign, MaterialCommunityIcons, MaterialIcons} from '@expo/vector-icons'
 import MyButtonText from "../components/MyButtonText";
 import MyButton from "../components/MyButton";
+import { app } from '../firebase-config'
+import { getAuth, createUserWithEmailAndPassword} from "firebase/auth";
+
+/*Reducers hooks to manage states*/
+const FormInputPost = 'REGISTER_INPUT_POST';
+const registerFormReducer = (state, action) => {
+    if (action.type === FormInputPost) {
+        const postValues = {
+            ...state.inputValues,
+            [action.input]: action.value
+        };
+        const postValidations = {
+            ...state.inputValidations,
+            [action.input]: action.isValid
+        };
+        let postFormIsValid = true;
+        for (const key in postValidations) {
+            postFormIsValid = postFormIsValid && postValidations[key];
+        }
+        return {
+            formIsValid: postFormIsValid,
+            inputValidations: postValidations,
+            inputValues: postValues,
+        };
+    }
+    return state;
+};
 
 const RegisterScreen = props => {
+    //form states
+    const [formState, formDispatch] = useReducer(registerFormReducer, {
+        inputValues: {
+            pseudo: '',
+            email: '',
+            pass: '',
+            confirmPass: ''
+        },
+        inputValidations: {
+            pseudo: false,
+            email: false,
+            pass: false,
+            confirmPass: false
+        },
+        formIsValid: false
+    });
+    //Form Handlers
+    const inputsHandler = (inputIdentifier, text) => {
+        let isValid = false;
+        if (text.trim().length > 0) {
+            isValid = true;
+        }
+        formDispatch({
+            type: FormInputPost,
+            value: text,
+            isValid: isValid,
+            input: inputIdentifier
 
-    const [isSecureEntry, setIsSecureEntry] = useState(true)
-    const [isSecureEntryConfirm, setIsSecureEntryConfirm] = useState(true)
+        });
+    }
+    //validation for the submit form
+    const submitHandler = useCallback(() => {
+        if (!formState.formIsValid || formState.inputValues.pass !== formState.inputValues.confirmPass) {
+            Alert.alert('Form is not valid !', 'Please fill all the inputs and the passwords must be identical :) ', [
+                {text: 'Okay'}
+            ]);
+        } else {
+            registerHandler();
+        }
+    });
+
+    //SignUp firebase logic
+    const registerHandler = () => {
+        const auth = getAuth(app);
+        createUserWithEmailAndPassword(auth, formState.inputValues.email, formState.inputValues.pass)
+            .then((userCredential) => {
+                const user = userCredential.user;
+                onToggleSnackBar()
+                console.log("user email : " + user.email + " & userCredential : " + userCredential)
+                setTimeout(() => {
+                    signInNavigation()
+                }, 3000);
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                Alert.alert(errorCode, errorMessage, [
+                    {text: 'Okay'}
+                ]);
+            });
+    }
 
     //Navigation between screens
     const signInNavigation = () => {
         props.navigation.navigate('SignIn')
     }
+    //Show passwords
+    const [isSecureEntry, setIsSecureEntry] = useState(true)
+    const [isSecureEntryConfirm, setIsSecureEntryConfirm] = useState(true)
+
+    //show and dismiss snackbar
+    const [visibleBar, setVisibleBar] = useState(false);
+    const onToggleSnackBar = () => setVisibleBar(!visibleBar);
+    const onDismissSnackBar = () => setVisibleBar(false);
 
     return (
         <KeyboardAvoidingView style={{flex: 1}} behavior={"height"} keyboardVerticalOffset={10}>
@@ -33,6 +126,8 @@ const RegisterScreen = props => {
                                 mode={"flat"}
                                 label={"Pseudo"}
                                 placeholder={"Deadpool"}
+                                value={formState.inputValues.pseudo}
+                                onChangeText={inputsHandler.bind(this, 'pseudo')}
                                 theme={{colors: {background: "transparent"}}}
                                 required
                             />
@@ -44,7 +139,10 @@ const RegisterScreen = props => {
                                 mode={"flat"}
                                 label={"Email"}
                                 placeholder={"exemple@hotmail.com"}
+                                value={formState.inputValues.email}
+                                onChangeText={inputsHandler.bind(this, 'email')}
                                 theme={{colors: {background: "transparent"}}}
+                                keyboardType={'email-address'}
                                 required
                             />
                         </View>
@@ -55,6 +153,8 @@ const RegisterScreen = props => {
                                 mode={"flat"}
                                 label={"Password"}
                                 placeholder={"********"}
+                                value={formState.inputValues.pass}
+                                onChangeText={inputsHandler.bind(this, 'pass')}
                                 theme={{colors: {background: "transparent"}}}
                                 secureTextEntry={isSecureEntry}
                                 right={<TextInput.Icon
@@ -73,6 +173,8 @@ const RegisterScreen = props => {
                                 mode={"flat"}
                                 label={"Confirm Password"}
                                 placeholder={"********"}
+                                value={formState.inputValues.confirmPass}
+                                onChangeText={inputsHandler.bind(this, 'confirmPass')}
                                 theme={{colors: {background: "transparent"}}}
                                 secureTextEntry={isSecureEntryConfirm}
                                 right={<TextInput.Icon
@@ -87,7 +189,7 @@ const RegisterScreen = props => {
                     </View>
                     <View style={styles.registerContainer}>
                         <MyButton
-                            onPress={() => console.log("Register Button")}
+                            onPress={submitHandler}
                         >
                             Register
                         </MyButton>
@@ -101,6 +203,17 @@ const RegisterScreen = props => {
                         >
                             Sign In
                         </MyButtonText>
+                    </View>
+                    <View style={styles.snackbarContainer}>
+                        <Snackbar
+                            visible={visibleBar}
+                            onDismiss={onDismissSnackBar}
+                            duration={2000}
+                            action={{
+                                label: 'Undo',
+                            }}>
+                            Congratulations ! You have been registered .
+                        </Snackbar>
                     </View>
                 </View>
             </ScrollView>
@@ -141,6 +254,13 @@ const styles = StyleSheet.create({
         marginTop: 20,
         flexDirection: 'row',
         alignItems: 'center',
+        marginBottom: 20
+    },
+    snackbarContainer:{
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+        height: 70
     }
 });
 

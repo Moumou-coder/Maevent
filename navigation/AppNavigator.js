@@ -1,6 +1,6 @@
 import React from "react";
 import {NavigationContainer} from '@react-navigation/native';
-import {AuthNavigator} from "./RoutersNavigator";
+import {AuthNavigator, HomeNavigator} from "./RoutersNavigator";
 
 const AppNavigator = props => {
     return(

@@ -2,18 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f3b84260-98f3-4d40-ba51-32df81875fe4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/screen/CommentsScreen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ModalComments.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/navigation/AppNavigator.js" beforeDir="false" afterPath="$PROJECT_DIR$/navigation/AppNavigator.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navigation/RoutersNavigator.js" beforeDir="false" afterPath="$PROJECT_DIR$/navigation/RoutersNavigator.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screen/AddEventScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screen/AddEventScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screen/DetailsEventScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screen/DetailsEventScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screen/HomeScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screen/HomeScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screen/ProfileScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screen/ProfileScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screen/SignInScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screen/SignInScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/firebase-config.js" beforeDir="false" afterPath="$PROJECT_DIR$/firebase-config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screen/RegisterScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screen/RegisterScreen.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,9 +45,10 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="TODO_SCOPE" value="All Places" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Maevent V2/Maevent" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2020.3.1\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -95,6 +87,14 @@
       <workItem from="1639232475756" duration="5616000" />
       <workItem from="1639241570411" duration="424000" />
       <workItem from="1639254345008" duration="6180000" />
+      <workItem from="1639336939959" duration="4079000" />
+      <workItem from="1639341311664" duration="3853000" />
+      <workItem from="1639391870429" duration="2103000" />
+      <workItem from="1639404063081" duration="713000" />
+      <workItem from="1639470610011" duration="13662000" />
+      <workItem from="1639567378717" duration="11613000" />
+      <workItem from="1639580886567" duration="1340000" />
+      <workItem from="1639583193422" duration="4317000" />
     </task>
     <servers />
   </component>
