@@ -4,26 +4,24 @@ import {TextInput} from "react-native-paper";
 import {AntDesign, MaterialCommunityIcons, MaterialIcons} from '@expo/vector-icons'
 import MyButtonText from "../components/MyButtonText";
 import MyButton from "../components/MyButton";
-import {useDispatch} from "react-redux";
-
 
 /*Reducers hooks to manage states*/
-const FormInputPost = 'POST';
+const FormInputPost = 'REGISTER_INPUT_POST';
 const registerFormReducer = (state, action) => {
-    if(action.type === FormInputPost) {
+    if (action.type === FormInputPost) {
         const postValues = {
             ...state.inputValues,
             [action.input]: action.value
         };
-        const postValidations= {
+        const postValidations = {
             ...state.inputValidations,
             [action.input]: action.isValid
         };
         let postFormIsValid = true;
-        for(const key in postValidations){
+        for (const key in postValidations) {
             postFormIsValid = postFormIsValid && postValidations[key];
         }
-        return{
+        return {
             formIsValid: postFormIsValid,
             inputValidations: postValidations,
             inputValues: postValues,
@@ -52,7 +50,7 @@ const RegisterScreen = props => {
     //Form Handlers
     const inputsHandler = (inputIdentifier, text) => {
         let isValid = false;
-        if(text.trim().length > 0 ) {
+        if (text.trim().length > 0) {
             isValid = true;
         }
         formDispatch({
@@ -65,12 +63,12 @@ const RegisterScreen = props => {
     }
     //validation for the submit form
     const submitHandler = useCallback(() => {
-        if(!formState.formIsValid || formState.inputValues.pass!==formState.inputValues.confirmPass){
+        if (!formState.formIsValid || formState.inputValues.pass !== formState.inputValues.confirmPass) {
             Alert.alert('Form is not valid !', 'Please check if you have filled all the inputs and the passwords are identical', [
-                { text: 'Okay' }
+                {text: 'Okay'}
             ]);
-        }else{
-            console.log("form is valid :) ")
+        } else {
+            signInNavigation();
         }
     });
 
