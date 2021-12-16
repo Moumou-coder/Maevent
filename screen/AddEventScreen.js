@@ -35,7 +35,7 @@ const AddEventScreen = props => {
                         <TouchableOpacity style={styles.backButton} onPress={() => goBack()}>
                             <Ionicons name="arrow-back" size={35} color="black" style={{}} />
                         </TouchableOpacity>
-                        <Image source={require('../assets/logo/Maevent_T.png')} style={{left: 55}}/>
+                        <Image source={require('../assets/logo/Maevent_T.png')} style={{}}/>
                     </View>
                     <View>
                         <View style={styles.inputContainer}>
@@ -139,8 +139,10 @@ const AddEventScreen = props => {
 
 const styles = StyleSheet.create({
     container: {
-        marginTop: 40,
-        marginBottom: 70
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginTop: 50,
+        marginBottom: 30
     },
     imageContainer: {
         marginBottom: 30,
@@ -180,7 +182,7 @@ const styles = StyleSheet.create({
         marginBottom: 10
     },
     backButton:{
-        left: 20
+        marginRight: 50
     }
 });
 
