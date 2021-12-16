@@ -1,8 +1,8 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
     Dimensions,
     Image,
-    KeyboardAvoidingView,
+    KeyboardAvoidingView, Platform,
     ScrollView,
     StyleSheet,
     Text,
@@ -13,15 +13,37 @@ import {TextInput} from "react-native-paper";
 import {Ionicons, MaterialIcons} from '@expo/vector-icons';
 import MyButton from "../components/MyButton";
 import colors from "../constants/colors";
-import DatePicker from "react-native-datepicker";
+import * as ImagePicker from 'expo-image-picker';
 
+//variable dimensions to use for style
 const deviceWidth = Dimensions.get('window').width
-// console.log(deviceWidth)
 
 const AddEventScreen = props => {
+    const [image, setImage] = useState(null);
 
-    // const [date, setDate] = useState('19-12-2021');
-    // const [time, setTime] = useState('00:00')
+    useEffect(() => {
+        (async () => {
+            if (Platform.OS !== 'web') {
+                const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
+                if (status !== 'granted') {
+                    alert('Sorry, we need camera roll permissions to make this work!');
+                }
+            }
+        })();
+    }, []);
+
+    const pickImage = async () => {
+        let result = await ImagePicker.launchImageLibraryAsync({
+            mediaTypes: ImagePicker.MediaTypeOptions.All,
+            allowsEditing: true,
+            aspect: [4, 3],
+            quality: 1,
+        });
+        console.log(result);
+        if (!result.cancelled) {
+            setImage(result.uri);
+        }
+    };
 
     //Navigations
     const goBack = () =>{
@@ -33,9 +55,9 @@ const AddEventScreen = props => {
                 <View style={styles.container}>
                     <View style={styles.imageContainer}>
                         <TouchableOpacity style={styles.backButton} onPress={() => goBack()}>
-                            <Ionicons name="arrow-back" size={35} color="black" style={{}} />
+                            <Ionicons name="arrow-back" size={35} color="black" />
                         </TouchableOpacity>
-                        <Image source={require('../assets/logo/Maevent_T.png')} style={{}}/>
+                        <Image source={require('../assets/logo/Maevent_T.png')} />
                     </View>
                     <View>
                         <View style={styles.inputContainer}>
@@ -52,7 +74,7 @@ const AddEventScreen = props => {
                         <View style={styles.inputContainer}>
                             <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
                                 <Text> Poster *</Text>
-                                <TouchableOpacity>
+                                <TouchableOpacity onPress={pickImage}>
                                     <MaterialIcons
                                         name="add-a-photo" size={22}
                                         color="black"
@@ -61,7 +83,7 @@ const AddEventScreen = props => {
                                 </TouchableOpacity>
                             </View>
                             <View style={styles.poster}>
-                                <Image source={require('../assets/logo/MaeventLogo.png')}/>
+                                {image && <Image source={{ uri: image }} style={styles.imagePoster} />}
                             </View>
                         </View>
                         <View style={styles.inputContainer}>
@@ -142,7 +164,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         marginTop: 50,
-        marginBottom: 30
+        marginBottom: 50
     },
     imageContainer: {
         marginBottom: 30,
@@ -161,6 +183,11 @@ const styles = StyleSheet.create({
         height: 250,
         marginTop: 10,
         borderRadius: 5,
+    },
+    imagePoster:{
+        width: 340,
+        height: 250,
+        borderRadius: 5
     },
     img: {
         flex: 1,

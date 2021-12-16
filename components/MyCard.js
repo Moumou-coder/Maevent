@@ -4,8 +4,20 @@ import { Entypo, MaterialCommunityIcons, MaterialIcons   } from '@expo/vector-ic
 
 const MyCard = props => {
 
+    // const eventObject = {
+    //     title: props.title,
+    //     srcImage: props.srcImage,
+    //     address: props.address,
+    //     date: props.date,
+    //     hours: props.hours,
+    //     price: props.price,
+    //     description: props.description,
+    // }
+    //
+    // const detailsEventNavigation = () => {
+    //     props.navigation.navigate('DetailsEvent', eventObject)
+    // }
     return(
-        //TODO: rendre ça dynamique
         //TODO: rajouter un effet shadow
         <View style={styles.cardContainer}>
             <TouchableOpacity onPress={props.onPressDetails}>
