@@ -1,5 +1,5 @@
 import React, {useCallback, useReducer, useState} from 'react';
-import {Alert, Image, KeyboardAvoidingView, StyleSheet, Text, View} from 'react-native';
+import {Alert, Image, KeyboardAvoidingView, ScrollView, StyleSheet, Text, View} from 'react-native';
 import {TextInput} from "react-native-paper";
 import {AntDesign, MaterialIcons} from '@expo/vector-icons'
 import MyButton from "../components/MyButton";
@@ -102,85 +102,90 @@ const SignInScreen = props => {
     const [isSecureEntry, setIsSecureEntry] = useState(true)
 
     return (
-        <KeyboardAvoidingView style={styles.container} behavior={"height"} keyboardVerticalOffset={10}>
-            <View style={styles.imageContainer}>
-                <Image source={require('../assets/logo/MaeventLogo_WT.png')}/>
-                <Text style={styles.text}>Welcome on Maevent</Text>
-            </View>
-            {/*TODO: add some logic error message*/}
-            <View>
-                <View style={styles.input}>
-                    <AntDesign name="mail" size={24} color="black" style={styles.icons}/>
-                    <TextInput
-                        style={{width: "85%"}}
-                        mode={"flat"}
-                        label={"Email"}
-                        placeholder={"exemple@hotmail.com"}
-                        value={formState.inputValues.email}
-                        onChangeText={inputsHandler.bind(this, 'email')}
-                        theme={{colors: {background: "transparent"}}}
-                        keyboardType={'email-address'}
-                        autoComplete={'email'}
-                        required
-                    />
+        <KeyboardAvoidingView style={{flex:1}} behavior={"height"} keyboardVerticalOffset={10}>
+            <ScrollView showsVerticalScrollIndicator={false}>
+                <View style={styles.container}>
+                <View style={styles.imageContainer}>
+                    <Image source={require('../assets/logo/MaeventLogo_WT.png')}/>
+                    <Text style={styles.text}>Welcome on Maevent</Text>
                 </View>
-                <View style={styles.input}>
-                    <MaterialIcons name="lock-outline" size={24} color="black" style={styles.icons}/>
-                    <TextInput
-                        style={{width: "85%"}}
-                        mode={"flat"}
-                        label={"Password"}
-                        placeholder={"********"}
-                        value={formState.inputValues.password}
-                        onChangeText={inputsHandler.bind(this, 'password')}
-                        theme={{colors: {background: "transparent"}}}
-                        secureTextEntry={isSecureEntry}
-                        right={<TextInput.Icon
-                            name={isSecureEntry ? "eye-off" : 'eye'}
-                            onPress={() => {
-                                setIsSecureEntry(prev => !prev)
-                            }}
-                        />}
-                        required
-                    />
-                </View>
+                {/*TODO: add some logic error message*/}
                 <View>
-                    <MyButtonText
-                        onPress={() => console.log("you forgot your password man ? ")}
-                        style={styles.buttonForgot}
+                    <View style={styles.input}>
+                        <AntDesign name="mail" size={24} color="black" style={styles.icons}/>
+                        <TextInput
+                            style={{width: "85%"}}
+                            mode={"flat"}
+                            label={"Email"}
+                            placeholder={"exemple@hotmail.com"}
+                            value={formState.inputValues.email}
+                            onChangeText={inputsHandler.bind(this, 'email')}
+                            theme={{colors: {background: "transparent"}}}
+                            keyboardType={'email-address'}
+                            autoComplete={'email'}
+                            required
+                        />
+                    </View>
+                    <View style={styles.input}>
+                        <MaterialIcons name="lock-outline" size={24} color="black" style={styles.icons}/>
+                        <TextInput
+                            style={{width: "85%"}}
+                            mode={"flat"}
+                            label={"Password"}
+                            placeholder={"********"}
+                            value={formState.inputValues.password}
+                            onChangeText={inputsHandler.bind(this, 'password')}
+                            theme={{colors: {background: "transparent"}}}
+                            secureTextEntry={isSecureEntry}
+                            right={<TextInput.Icon
+                                name={isSecureEntry ? "eye-off" : 'eye'}
+                                onPress={() => {
+                                    setIsSecureEntry(prev => !prev)
+                                }}
+                            />}
+                            required
+                        />
+                    </View>
+                    <View>
+                        <MyButtonText
+                            onPress={() => console.log("you forgot your password man ? ")}
+                            style={styles.buttonForgot}
+                        >
+                            Forgot Password ?
+                        </MyButtonText>
+                    </View>
+                </View>
+                <View style={styles.loginContainer}>
+                    <MyButton
+                        onPress={submitHandler}
                     >
-                        Forgot Password ?
+                        Sign In
+                    </MyButton>
+                </View>
+                <View style={styles.registerContainer}>
+                    <Text style={{color: 'black'}}>
+                        First time here ?
+                    </Text>
+                    <MyButtonText
+                        onPress={registerNavigation}
+                    >
+                        Register
                     </MyButtonText>
                 </View>
-            </View>
-            <View style={styles.loginContainer}>
-                <MyButton
-                    onPress={submitHandler}
-                >
-                    Sign In
-                </MyButton>
-            </View>
-            <View style={styles.registerContainer}>
-                <Text style={{color: 'black'}}>
-                    First time here ?
-                </Text>
-                <MyButtonText
-                    onPress={registerNavigation}
-                >
-                    Register
-                </MyButtonText>
-            </View>
+                </View>
+            </ScrollView>
         </KeyboardAvoidingView>
     );
 }
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        justifyContent: 'center',
         alignItems: 'center',
+        marginTop: 50,
+        marginBottom: 20
     },
     imageContainer: {
+        marginTop: 20,
         marginBottom: 20,
         alignItems: 'center'
     },

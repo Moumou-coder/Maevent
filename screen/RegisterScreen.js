@@ -235,16 +235,17 @@ const styles = StyleSheet.create({
     container: {
         justifyContent: 'center',
         alignItems: 'center',
+        marginBottom: 20
     },
     snackbarContainer: {
         flex: 1,
-        marginTop: 25,
+        marginTop: 20,
         alignItems: 'center',
         justifyContent: 'center',
         height: 70
     },
     imageContainer: {
-        marginTop: 10,
+        marginTop: 5,
         marginBottom: 20,
         alignItems: 'center'
     },

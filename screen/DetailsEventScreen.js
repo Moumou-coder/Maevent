@@ -97,9 +97,10 @@ const DetailsEventScreen = props => {
 const styles = StyleSheet.create({
     screenContainer: {
         flex: 1,
-        width: deviceWidth,
         alignItems: 'center',
+        justifyContent: 'center',
         marginTop: 35,
+        marginBottom: 20
     },
     posterContainer: {
         width: '95%',
