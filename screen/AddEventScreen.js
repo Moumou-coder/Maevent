@@ -1,8 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import {
+    Alert,
     Dimensions,
     Image,
-    KeyboardAvoidingView, Platform,
+    KeyboardAvoidingView,
+    Platform,
     ScrollView,
     StyleSheet,
     Text,
@@ -19,8 +21,46 @@ import * as ImagePicker from 'expo-image-picker';
 const deviceWidth = Dimensions.get('window').width
 
 const AddEventScreen = props => {
-    const [image, setImage] = useState(null);
 
+    //inputs State
+    const [title, setTitle] = useState('');
+    const titleChanged = (text) => {
+        setTitle(text)
+    }
+    const [address, setAddress] = useState('');
+    const addressChanged = (text) => {
+        setAddress(text)
+    }
+    const [date, setDate] = useState('');
+    const dateChanged = (text) => {
+        setDate(text)
+    }
+    const [hours, setHours] = useState('');
+    const hoursChanged = (text) => {
+        setHours(text)
+    }
+    const [price, setPrice] = useState('');
+    const priceChanged = (text) => {
+        setPrice(text)
+    }
+    const [description, setDescription] = useState('');
+    const descriptionChanged = (text) => {
+        setDescription(text)
+    }
+    //submit form of the event
+    const submitHandler = () => {
+        if(title !== '' || address !== '' ||date!== '' || hours!== '' || price!== ''){
+            createActivity()
+        }
+        else {
+            Alert.alert('Form is not valid !', 'Please fill all the inputs :) ', [
+                {text: 'Okay'}
+            ]);
+        }
+    }
+
+    // Image Picker Expo
+    const [image, setImage] = useState(null);
     useEffect(() => {
         (async () => {
             if (Platform.OS !== 'web') {
@@ -45,18 +85,28 @@ const AddEventScreen = props => {
         }
     };
 
-    //Navigations
-    const goBack = () =>{
+    const createActivity = () => {
+        const activityObject = {
+            title: title,
+            srcImage: image,
+            address: address,
+            date: date,
+            hours: hours,
+            price: price,
+            description: description,
+        }
+        // console.log(activityObject)
+    }
+
+    const cancelButton = () => {
         props.navigation.goBack();
     }
     return (
+        //todo: reducer
         <KeyboardAvoidingView style={{flex: 1}} behavior={"height"} keyboardVerticalOffset={10}>
             <ScrollView showsVerticalScrollIndicator={false}>
                 <View style={styles.container}>
                     <View style={styles.imageContainer}>
-                        <TouchableOpacity style={styles.backButton} onPress={() => goBack()}>
-                            <Ionicons name="arrow-back" size={35} color="black" />
-                        </TouchableOpacity>
                         <Image source={require('../assets/logo/Maevent_T.png')} />
                     </View>
                     <View>
@@ -66,11 +116,13 @@ const AddEventScreen = props => {
                                 style={{width: "90%"}}
                                 mode={"outlined"}
                                 placeholder={"ZeEvent"}
+                                value={title}
+                                onChangeText={titleChanged}
                                 theme={{colors: {background: "transparent"}}}
                                 required
                             />
                         </View>
-                        {/*TODO: ajouter image picker*/}
+                        {/*TODO: une image default if il y a encore aucune image ( dans le state image par default */}
                         <View style={styles.inputContainer}>
                             <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
                                 <Text> Poster *</Text>
@@ -92,6 +144,8 @@ const AddEventScreen = props => {
                                 style={{width: "90%"}}
                                 mode={"outlined"}
                                 placeholder={"Rue des folies 15, 1000 Brussels"}
+                                value={address}
+                                onChangeText={addressChanged}
                                 theme={{colors: {background: "transparent"}}}
                                 required
                             />
@@ -102,6 +156,8 @@ const AddEventScreen = props => {
                                 style={{width: "90%"}}
                                 mode={"outlined"}
                                 placeholder={"19/12/2021"}
+                                value={date}
+                                onChangeText={dateChanged}
                                 theme={{colors: {background: "transparent"}}}
                                 required
                             />
@@ -112,6 +168,8 @@ const AddEventScreen = props => {
                                 style={{width: "90%"}}
                                 mode={"outlined"}
                                 placeholder={"16h00 - 21h00"}
+                                value={hours}
+                                onChangeText={hoursChanged}
                                 theme={{colors: {background: "transparent"}}}
                                 required
                             />
@@ -122,6 +180,8 @@ const AddEventScreen = props => {
                                 style={{width: "90%"}}
                                 mode={"outlined"}
                                 placeholder={"23€ adulte - 10€ enfant - gratuit enfant"}
+                                value={price}
+                                onChangeText={priceChanged}
                                 theme={{colors: {background: "transparent"}}}
                                 required
                             />
@@ -132,6 +192,8 @@ const AddEventScreen = props => {
                                 style={{width: "90%"}}
                                 mode={"outlined"}
                                 placeholder={"This is Event is ... "}
+                                value={description}
+                                onChangeText={descriptionChanged}
                                 theme={{colors: {background: "transparent"}}}
                                 autoCorrect={true}
                             />
@@ -147,10 +209,20 @@ const AddEventScreen = props => {
                     {/*TODO: ajouter la vérification du formulaire & la validation */}
                     <View style={styles.buttonsContainer}>
                         <View style={{marginRight: 20}}>
-                            <MyButton style={styles.buttonSubmit}> Valider </MyButton>
+                            <MyButton
+                                style={styles.buttonSubmit}
+                                onPress={submitHandler}
+                            >
+                                Valider
+                            </MyButton>
                         </View>
                         <View style={{marginLeft: 20}}>
-                            <MyButton style={styles.buttonCancel}> Annuler </MyButton>
+                            <MyButton
+                                style={styles.buttonCancel}
+                                onPress={cancelButton}
+                            >
+                                Annuler
+                            </MyButton>
                         </View>
                     </View>
                 </View>
@@ -207,9 +279,6 @@ const styles = StyleSheet.create({
     buttonSubmit: {
         width: 150,
         marginBottom: 10
-    },
-    backButton:{
-        marginRight: 50
     }
 });
 
