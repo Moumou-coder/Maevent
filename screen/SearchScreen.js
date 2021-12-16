@@ -1,11 +1,11 @@
 import React from 'react';
-import {Image, StyleSheet, Text, View} from 'react-native';
+import { StyleSheet, Text, View} from 'react-native';
 
 
 const SearchScreen = props => {
+
     return(
         <View style={styles.container}>
-            <Text> search page </Text>
         </View>
     );
 }

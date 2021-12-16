@@ -12,15 +12,18 @@ import {
     View
 } from 'react-native';
 import {TextInput} from "react-native-paper";
-import {Ionicons, MaterialIcons} from '@expo/vector-icons';
+import {MaterialIcons} from '@expo/vector-icons';
 import MyButton from "../components/MyButton";
 import colors from "../constants/colors";
 import * as ImagePicker from 'expo-image-picker';
+import {useDispatch} from "react-redux";
+import {postEvent} from "../features/event/eventSlice";
 
 //variable dimensions to use for style
 const deviceWidth = Dimensions.get('window').width
 
 const AddEventScreen = props => {
+    const dispatch = useDispatch()
 
     //inputs State
     const [title, setTitle] = useState('');
@@ -47,24 +50,13 @@ const AddEventScreen = props => {
     const descriptionChanged = (text) => {
         setDescription(text)
     }
-    //submit form of the event
-    const submitHandler = () => {
-        if(title !== '' || address !== '' ||date!== '' || hours!== '' || price!== ''){
-            createActivity()
-        }
-        else {
-            Alert.alert('Form is not valid !', 'Please fill all the inputs :) ', [
-                {text: 'Okay'}
-            ]);
-        }
-    }
 
     // Image Picker Expo
     const [image, setImage] = useState(null);
     useEffect(() => {
         (async () => {
             if (Platform.OS !== 'web') {
-                const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
+                const {status} = await ImagePicker.requestMediaLibraryPermissionsAsync();
                 if (status !== 'granted') {
                     alert('Sorry, we need camera roll permissions to make this work!');
                 }
@@ -79,23 +71,31 @@ const AddEventScreen = props => {
             aspect: [4, 3],
             quality: 1,
         });
-        console.log(result);
+        // console.log(result);
         if (!result.cancelled) {
             setImage(result.uri);
         }
     };
 
-    const createActivity = () => {
-        const activityObject = {
-            title: title,
-            srcImage: image,
-            address: address,
-            date: date,
-            hours: hours,
-            price: price,
-            description: description,
+    //submit form of the event
+    const submitHandler = () => {
+        if (title !== '' || image != null || address !== '' || date !== '' || hours !== '' || price !== '') {
+            const eventObject = {
+                title: title,
+                image: image,
+                address: address,
+                date: date,
+                hours: hours,
+                price: price,
+                description: description,
+            }
+            dispatch(postEvent(eventObject))
+            // props.navigation.navigate('HomeEvent')
+        } else {
+            Alert.alert('Form is not valid !', 'Please fill all the inputs :) ', [
+                {text: 'Okay'}
+            ]);
         }
-        // console.log(activityObject)
     }
 
     const cancelButton = () => {
@@ -107,7 +107,7 @@ const AddEventScreen = props => {
             <ScrollView showsVerticalScrollIndicator={false}>
                 <View style={styles.container}>
                     <View style={styles.imageContainer}>
-                        <Image source={require('../assets/logo/Maevent_T.png')} />
+                        <Image source={require('../assets/logo/Maevent_T.png')}/>
                     </View>
                     <View>
                         <View style={styles.inputContainer}>
@@ -135,7 +135,7 @@ const AddEventScreen = props => {
                                 </TouchableOpacity>
                             </View>
                             <View style={styles.poster}>
-                                {image && <Image source={{ uri: image }} style={styles.imagePoster} />}
+                                {image && <Image source={{uri: image}} style={styles.imagePoster}/>}
                             </View>
                         </View>
                         <View style={styles.inputContainer}>
@@ -256,7 +256,7 @@ const styles = StyleSheet.create({
         marginTop: 10,
         borderRadius: 5,
     },
-    imagePoster:{
+    imagePoster: {
         width: 340,
         height: 250,
         borderRadius: 5
