@@ -3,10 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f3b84260-98f3-4d40-ba51-32df81875fe4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/features/event/eventSlice.js" beforeDir="false" afterPath="$PROJECT_DIR$/features/event/eventSlice.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screen/AddEventScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screen/AddEventScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screen/SearchScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screen/SearchScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screen/SettingScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screen/SettingScreen.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,6 +98,7 @@
       <workItem from="1639655769681" duration="481000" />
       <workItem from="1639665098583" duration="12323000" />
       <workItem from="1639678001991" duration="77000" />
+      <workItem from="1639756029464" duration="1790000" />
     </task>
     <servers />
   </component>
