@@ -18,6 +18,8 @@ import colors from "../constants/colors";
 import * as ImagePicker from 'expo-image-picker';
 import {useDispatch} from "react-redux";
 import {postEvent} from "../features/event/eventSlice";
+import { collection, doc, setDoc } from "firebase/firestore";
+import {db} from '../firebase-config'
 
 //variable dimensions to use for style
 const deviceWidth = Dimensions.get('window').width
@@ -51,6 +53,7 @@ const AddEventScreen = props => {
         setDescription(text)
     }
 
+
     // Image Picker Expo
     const [image, setImage] = useState(null);
     useEffect(() => {
@@ -78,9 +81,11 @@ const AddEventScreen = props => {
     };
 
     //submit form of the event
+    const eventRef = doc(collection(db, "event"));
     const submitHandler = () => {
-        if (title !== '' || image != null || address !== '' || date !== '' || hours !== '' || price !== '') {
+        if (title !== '' && image != null && address !== '' && date !== '' && hours !== '' && price !== '') {
             const eventObject = {
+                id: eventRef.id,
                 title: title,
                 image: image,
                 address: address,
@@ -90,7 +95,7 @@ const AddEventScreen = props => {
                 description: description,
             }
             dispatch(postEvent(eventObject))
-            // props.navigation.navigate('HomeEvent')
+            props.navigation.navigate('HomeEvent')
         } else {
             Alert.alert('Form is not valid !', 'Please fill all the inputs :) ', [
                 {text: 'Okay'}

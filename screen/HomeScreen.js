@@ -5,6 +5,7 @@ import MyCard from "../components/MyCard";
 import {getAuth} from "firebase/auth";
 import {app, db} from '../firebase-config'
 import { doc, getDoc } from "firebase/firestore";
+import {ListOfEvent} from "../components/ListOfEvent";
 
 const HomeScreen = props => {
 
@@ -30,12 +31,7 @@ const HomeScreen = props => {
             </View>
             {/*TODO: créer une flatlist pour les card*/}
             {/*todo: modal comment */}
-            <View>
-                <MyCard
-                    onPressComment={() => comments()}
-                    onPressDetails={() => detailsEvent()}
-                />
-            </View>
+                <ListOfEvent nav={props} />
         </View>
     );
 }
