@@ -5,6 +5,7 @@ import {Entypo, MaterialCommunityIcons, MaterialIcons} from '@expo/vector-icons'
 const MyCard = props => {
 
     const eventObject = {
+        id: props.id,
         title: props.title,
         image: props.image,
         address: props.address,

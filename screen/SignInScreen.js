@@ -96,7 +96,8 @@ const SignInScreen = props => {
             });
         const querySnapshot = await getDocs(collection(db, "event"));
         querySnapshot.forEach((doc) => {
-            tableau.push(doc.data())
+            const object = {...doc.data(), id:doc.id}
+            tableau.push(object)
         })
         dispatch(getEvent(tableau));
     }

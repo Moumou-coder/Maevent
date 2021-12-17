@@ -10,6 +10,7 @@ export const ListOfEvent = props => {
         return (
             <MyCard
                 nav={props.nav}
+                id={dataEvent.item.id}
                 title={dataEvent.item.title}
                 image={dataEvent.item.image}
                 address={dataEvent.item.address}

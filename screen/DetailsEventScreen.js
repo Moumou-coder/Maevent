@@ -6,18 +6,22 @@ import colors from "../constants/colors";
 import MyButton from "../components/MyButton";
 import {useDispatch} from "react-redux";
 import {deleteEvent} from "../features/event/eventSlice";
-import { doc, getDoc } from "firebase/firestore";
+import {db} from '../firebase-config'
+import { collection, query, where, getDocs } from "firebase/firestore";
 
-
-const deviceWidth = Dimensions.get('window').width
 const deviceHeight = Dimensions.get('window').height
 
 const DetailsEventScreen = props => {
 
     //récuper depuis firebase id de l'event et le supprimer depuis le store
     const dispatch = useDispatch();
-    const deleteOneEvent = () => {
-
+    const deleteThisEvent = async () => {
+        const q = query(collection(db, "event"), where("id", "==", superEventObject.id));
+        const querySnapshot = await getDocs(q);
+        querySnapshot.forEach((doc) => {
+            dispatch(deleteEvent(doc.id))
+            props.navigation.replace("HomeEvent")
+        });
     }
 
     // passage des de paramètres par navigation
@@ -86,9 +90,7 @@ const DetailsEventScreen = props => {
                         Edit
                     </MyButton>
                     <MyButton
-                        onPress={() => {
-                            console.log("Delete")
-                        }}
+                        onPress={deleteThisEvent}
                         style={{backgroundColor: colors.danger, width: 150,}}
                     >
                         delete
