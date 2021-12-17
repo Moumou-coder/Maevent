@@ -5,7 +5,10 @@ import {AntDesign, MaterialIcons} from '@expo/vector-icons'
 import MyButton from "../components/MyButton";
 import MyButtonText from "../components/MyButtonText";
 import {getAuth, signInWithEmailAndPassword} from "firebase/auth";
-import {app} from '../firebase-config'
+import { collection, getDocs } from "firebase/firestore";
+import {app, db} from '../firebase-config'
+import {useDispatch} from "react-redux";
+import {getEvent, postEvent} from "../features/event/eventSlice";
 
 //Reducer manage states of signIn
 const loginInputPost = 'LOGIN_INPUT_POST';
@@ -33,6 +36,7 @@ const signInFormReducer = (state, action) => {
 };
 
 const SignInScreen = props => {
+    const dispatch = useDispatch()
     //Form Reducer (states)
     const [formState, formDispatch] = useReducer(signInFormReducer, {
         inputValues: {
@@ -67,19 +71,21 @@ const SignInScreen = props => {
                 {text: 'Okay'}
             ]);
         } else {
-            handleLogin();
+            handleLogin().then(
+                homeNavigation()
+            );
         }
     });
 
     //Firebase SignIn
-    const handleLogin = () => {
+    const handleLogin = async () => {
         const auth = getAuth(app);
+        const tableau=[];
         signInWithEmailAndPassword(auth, formState.inputValues.email, formState.inputValues.password)
             .then((userCredential) => {
                 const user = userCredential.user;
                 const userId = user.uid
                 // console.log("user email : " + user.email + " & user id  : " + user.uid)
-                homeNavigation()
             })
             .catch((error) => {
                 const errorCode = error.code;
@@ -88,6 +94,11 @@ const SignInScreen = props => {
                     {text: 'Okay'}
                 ]);
             });
+        const querySnapshot = await getDocs(collection(db, "event"));
+        querySnapshot.forEach((doc) => {
+            tableau.push(doc.data())
+        })
+        dispatch(getEvent(tableau));
     }
 
     //Navigation between screens

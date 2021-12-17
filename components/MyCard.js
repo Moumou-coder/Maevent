@@ -1,35 +1,36 @@
-import React, {useState} from "react";
+import React from "react";
 import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-import { Entypo, MaterialCommunityIcons, MaterialIcons   } from '@expo/vector-icons';
+import {Entypo, MaterialCommunityIcons, MaterialIcons} from '@expo/vector-icons';
 
 const MyCard = props => {
 
-    // const eventObject = {
-    //     title: props.title,
-    //     srcImage: props.srcImage,
-    //     address: props.address,
-    //     date: props.date,
-    //     hours: props.hours,
-    //     price: props.price,
-    //     description: props.description,
-    // }
-    //
-    // const detailsEventNavigation = () => {
-    //     props.navigation.navigate('DetailsEvent', eventObject)
-    // }
+    const eventObject = {
+        title: props.title,
+        image: props.image,
+        address: props.address,
+        date: props.date,
+        hours: props.hours,
+        price: props.price,
+        description: props.description,
+    }
+
+    const detailsEventNavigation = () => {
+        props.nav.navigation.navigate('DetailsEvent', eventObject)
+    }
+
     return(
         //TODO: rajouter un effet shadow
         <View style={styles.cardContainer}>
-            <TouchableOpacity onPress={props.onPressDetails}>
-                <Image source={require('../assets/zevent.jpg')} style={styles.imageEvent}/>
+            <TouchableOpacity onPress={detailsEventNavigation}>
+                <Image source={{uri:props.image }} style={styles.imageEvent}/>
             </TouchableOpacity>
             <View style={styles.contentCard}>
                 <View>
-                    <Text style={styles.titleCard}> Card Title </Text>
+                    <Text style={styles.titleCard}>{props.title}</Text>
                 </View>
                 <View style={styles.locationContainer}>
                     <Entypo name="location-pin" size={20} color='#4169e1' />
-                    <Text style={styles.addressEvent}> address event</Text>
+                    <Text style={styles.addressEvent}>{props.address}</Text>
                 </View>
                 <View style={styles.participantContainer}>
                     <Text style={styles.participantTxt}>participants : x</Text>

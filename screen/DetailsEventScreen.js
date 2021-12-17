@@ -4,12 +4,25 @@ import {Entypo, FontAwesome, Ionicons, Octicons} from '@expo/vector-icons';
 import {Caption, Title} from "react-native-paper";
 import colors from "../constants/colors";
 import MyButton from "../components/MyButton";
+import {useDispatch} from "react-redux";
+import {deleteEvent} from "../features/event/eventSlice";
+import { doc, getDoc } from "firebase/firestore";
 
 
 const deviceWidth = Dimensions.get('window').width
 const deviceHeight = Dimensions.get('window').height
 
 const DetailsEventScreen = props => {
+
+    //récuper depuis firebase id de l'event et le supprimer depuis le store
+    const dispatch = useDispatch();
+    const deleteOneEvent = () => {
+
+    }
+
+    // passage des de paramètres par navigation
+    const superEventObject = props.route.params;
+    //navigations
     const goBack = () =>{
         props.navigation.goBack();
     }
@@ -17,7 +30,7 @@ const DetailsEventScreen = props => {
         <ScrollView>
             <View style={styles.screenContainer}>
                 <View style={styles.posterContainer}>
-                    <ImageBackground source={require('../assets/zevent.jpg')} style={styles.posterEvent}>
+                    <ImageBackground source={{uri: superEventObject.image}} style={styles.posterEvent}>
                         <View style={styles.contentPosterContainer}>
                             {/*todo: ajouter icon heart quand c'est deja rajoutee ou lors du clickEvent*/}
                             <TouchableOpacity style={styles.backButton} onPress={() => goBack()}>
@@ -31,7 +44,7 @@ const DetailsEventScreen = props => {
                                 <Text style={styles.txtLocation}> 0 km away</Text>
                             </TouchableOpacity>
                             <View style={{marginLeft: 5}}>
-                                <Title style={styles.posterTxt}> My Title Of Event </Title>
+                                <Title style={styles.posterTxt}> {superEventObject.title} </Title>
                             </View>
                         </View>
                     </ImageBackground>
@@ -41,34 +54,26 @@ const DetailsEventScreen = props => {
                         <Octicons name="calendar" size={27} color={colors.primary}/>
                         <View style={styles.subInfo}>
                             <Caption style={styles.captionTxt}> Date </Caption>
-                            <Text style={styles.txtInfo}> 19/12/21 </Text>
+                            <Text style={styles.txtInfo}> {superEventObject.date} </Text>
                         </View>
                     </View>
                     <View style={styles.info}>
                         <Ionicons name="time-outline" size={27} color={colors.primary}/>
                         <View style={styles.subInfo}>
                             <Caption style={styles.captionTxt}> Time </Caption>
-                            <Text style={styles.txtInfo}> 00:00 </Text>
+                            <Text style={styles.txtInfo}> {superEventObject.hours} </Text>
                         </View>
                     </View>
                     <View style={styles.info}>
                         <FontAwesome name="euro" size={27} color={colors.primary}/>
                         <View style={styles.subInfo}>
                             <Caption style={styles.captionTxt}> Price </Caption>
-                            <Text style={styles.txtInfo}> 50€ </Text>
+                            <Text style={styles.txtInfo}> {superEventObject.price} </Text>
                         </View>
                     </View>
                 </View>
                 <View style={styles.descriptionContainer}>
-                    <Text style={{color: '#696969'}}>
-                        Un paragraphe est une section de texte en prose vouée au développement d'un point particulier
-                        souvent au moyen de plusieurs phrases, dans la continuité du précédent et du suivant.
-                        Sur le plan typographique, le paragraphe est compris entre deux alinéas, qui s'analysent aussi
-                        comme
-                        une « ponctuation blanche ».
-                        Le symbole du paragraphe est §. La fin d'un paragraphe était autrefois indiquée par un
-                        pied-de-mouche (¶).
-                    </Text>
+                    <Text style={{color: '#696969'}}> {superEventObject.description} </Text>
                 </View>
                 {/*todo: ajouter les fonctionnalités correspondantes + navigation*/}
                 <View style={styles.buttonContainer}>

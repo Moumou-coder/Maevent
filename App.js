@@ -15,7 +15,6 @@ export default function App() {
             event: eventReducer,
         },
     });
-
     return (
         <Provider store={store}>
             <SafeAreaView style={styles.container}>

@@ -3,7 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="f3b84260-98f3-4d40-ba51-32df81875fe4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screen/SettingScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screen/SettingScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/MyCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/MyCard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/listOfEvent.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/ListOfEvent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/features/event/eventSlice.js" beforeDir="false" afterPath="$PROJECT_DIR$/features/event/eventSlice.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screen/DetailsEventScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screen/DetailsEventScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screen/HomeScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screen/HomeScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screen/SignInScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screen/SignInScreen.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,7 +104,8 @@
       <workItem from="1639655769681" duration="481000" />
       <workItem from="1639665098583" duration="12323000" />
       <workItem from="1639678001991" duration="77000" />
-      <workItem from="1639756029464" duration="1790000" />
+      <workItem from="1639756029464" duration="14030000" />
+      <workItem from="1639778441195" duration="214000" />
     </task>
     <servers />
   </component>

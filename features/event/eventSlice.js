@@ -5,36 +5,32 @@ import { collection, addDoc } from "firebase/firestore";
 export const eventSlice = createSlice({
     name: "event",
     initialState: {
-        value: {
-            title: "",
-            image: null,
-            address: "",
-            date: "",
-            hours: "",
-            price: "",
-            description: "",
-        }
+        arrayState:[],
     },
     reducers: {
         postEvent: (state, action) => {
-            state.value = action.payload
-            addDoc(collection(db, "events"), {
-                title: state.value.title,
-                image: state.value.image,
-                address: state.value.address,
-                date: state.value.date,
-                hours: state.value.hours,
-                price: state.value.price,
-                description: state.value.description,
+            state.arrayState = [...state.arrayState, action.payload]
+            addDoc(collection(db, "event"), {
+                title: action.payload.title,
+                image: action.payload.image,
+                address: action.payload.address,
+                date: action.payload.date,
+                hours: action.payload.hours,
+                price: action.payload.price,
+                description: action.payload.description,
             }).then();
         },
-        // getEvent: (state, action) => {
-        //
-        // }
+        getEvent: (state, action) => {
+            state.arrayState = [...action.payload]
+        },
+        deleteEvent: (state, action) => {
+            let newDeleteArray = state.arrayState.filter(oneEvent=>oneEvent.id!==action.payload.id)
+            state.arrayState = [...newDeleteArray]
+        }
     }
 });
 
 //export
-export const {postEvent} = eventSlice.actions;
+export const {postEvent, getEvent, deleteEvent} = eventSlice.actions;
 
 export default eventSlice.reducer;
