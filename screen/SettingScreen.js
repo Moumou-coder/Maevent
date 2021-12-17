@@ -8,10 +8,6 @@ import ModalProfile from "../components/ModalProfile";
 import {getAuth, signOut} from "firebase/auth";
 import {app} from '../firebase-config'
 
-
-const deviceWidth = Dimensions.get('window').width
-const deviceHeight = Dimensions.get('window').height
-
 const SettingScreen = props => {
     //states
     const [isNotificationSwitchOn, setIsNotificationSwitchOn] = useState(false);
@@ -22,6 +18,9 @@ const SettingScreen = props => {
 
     const [isModalLanguageVisible, setIsModalLanguageVisible] = useState(false)
     const [isModalProfileVisible, setIsModalProfileVisible] = useState(false)
+
+    const [isDarkSwitchOn, setIsDarkSwitchOn] = useState(false);
+    const onToggleSwitchDark = () => setIsDarkSwitchOn(!isDarkSwitchOn);
 
     //signOut
     const handleSignOut = () => {
@@ -65,6 +64,10 @@ const SettingScreen = props => {
                     <View style={styles.setting}>
                         <Text style={styles.settingLabel}> Localisation </Text>
                         <Switch value={isLocalisationSwitchOn} onValueChange={onToggleSwitchLocalisation}/>
+                    </View>
+                    <View style={styles.setting}>
+                        <Text style={styles.settingLabel}> Dark Theme </Text>
+                        <Switch value={isDarkSwitchOn} onValueChange={onToggleSwitchDark}/>
                     </View>
                     <TouchableOpacity onPress={() => setIsModalLanguageVisible(true)}>
                         <View style={styles.setting}>

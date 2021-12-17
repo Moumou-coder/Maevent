@@ -3,13 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f3b84260-98f3-4d40-ba51-32df81875fe4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/app.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ModalProfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/ModalProfile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screen/AddEventScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screen/AddEventScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screen/DetailsEventScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screen/DetailsEventScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screen/RegisterScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screen/RegisterScreen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/screen/SettingScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screen/SettingScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screen/SignInScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screen/SignInScreen.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,7 +94,11 @@
       <workItem from="1639567378717" duration="11613000" />
       <workItem from="1639580886567" duration="1340000" />
       <workItem from="1639583193422" duration="15337000" />
-      <workItem from="1639649175482" duration="2678000" />
+      <workItem from="1639649175482" duration="6194000" />
+      <workItem from="1639655769681" duration="481000" />
+      <workItem from="1639665098583" duration="12323000" />
+      <workItem from="1639678001991" duration="77000" />
+      <workItem from="1639756029464" duration="1790000" />
     </task>
     <servers />
   </component>

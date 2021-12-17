@@ -61,7 +61,6 @@ const RegisterScreen = props => {
             value: text,
             isValid: isValid,
             input: inputIdentifier
-
         });
     }
     //validation for the submit form
