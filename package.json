@@ -8,6 +8,7 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@react-native-community/datetimepicker": "^5.0.1",
     "@react-navigation/bottom-tabs": "^6.0.9",
     "@react-navigation/native": "^6.0.6",
     "@react-navigation/native-stack": "^6.2.5",
@@ -29,7 +30,8 @@
   "devDependencies": {
     "@babel/core": "^7.9.0",
     "@expo/vector-icons": "^12.0.5",
-    "expo-blur": "^10.0.3"
+    "expo-blur": "^10.0.3",
+    "prop-types": "^15.7.2"
   },
   "private": true
 }

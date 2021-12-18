@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {
-    Alert,
+    Alert, Button,
     Dimensions,
     Image,
     KeyboardAvoidingView,
@@ -16,6 +16,7 @@ import {MaterialIcons} from '@expo/vector-icons';
 import MyButton from "../components/MyButton";
 import colors from "../constants/colors";
 import * as ImagePicker from 'expo-image-picker';
+import DateTimePicker from '@react-native-community/datetimepicker';
 import {useDispatch} from "react-redux";
 import {postEvent} from "../features/event/eventSlice";
 import { collection, doc, setDoc } from "firebase/firestore";
@@ -36,14 +37,6 @@ const AddEventScreen = props => {
     const addressChanged = (text) => {
         setAddress(text)
     }
-    const [date, setDate] = useState('');
-    const dateChanged = (text) => {
-        setDate(text)
-    }
-    const [hours, setHours] = useState('');
-    const hoursChanged = (text) => {
-        setHours(text)
-    }
     const [price, setPrice] = useState('');
     const priceChanged = (text) => {
         setPrice(text)
@@ -52,7 +45,34 @@ const AddEventScreen = props => {
     const descriptionChanged = (text) => {
         setDescription(text)
     }
+    const [date, setDate] = useState(new Date(1598051730000));
+    const [mode, setMode] = useState('date');
+    const [show, setShow] = useState(false);
+    const [textDate, setTextDate] = useState('');
+    const [textTime, setTextTime] = useState('');
+    //Date & Time Picker
+    const showMode = (currentMode) => {
+        setShow(true);
+        setMode(currentMode);
+    };
+    const showDatepicker = () => {
+        showMode('date');
+    };
+    const showTimepicker = () => {
+        showMode('time');
+    };
 
+    const onChange = (event, selectedDate) => {
+        const currentDate = selectedDate || date;
+        setShow(Platform.OS === 'ios');
+        setDate(currentDate);
+
+        let tempDate = new Date(currentDate);
+        let fDate = tempDate.getDate() + '/' + (tempDate.getMonth()) + '/' + (tempDate.getFullYear());
+        let fTime = tempDate.getHours() + 'h' + tempDate.getMinutes();
+        setTextDate(fDate)
+        setTextTime(fTime)
+    };
 
     // Image Picker Expo
     const [image, setImage] = useState(null);
@@ -83,14 +103,14 @@ const AddEventScreen = props => {
     //submit form of the event
     const eventRef = doc(collection(db, "event"));
     const submitHandler = () => {
-        if (title !== '' && image != null && address !== '' && date !== '' && hours !== '' && price !== '') {
+        if (title !== '' && image != null && address !== '' && textDate !== '' && textTime !== '' && price !== '') {
             const eventObject = {
                 id: eventRef.id,
                 title: title,
                 image: image,
                 address: address,
-                date: date,
-                hours: hours,
+                date: textDate,
+                hours: textTime,
                 price: price,
                 description: description,
             }
@@ -155,38 +175,61 @@ const AddEventScreen = props => {
                                 required
                             />
                         </View>
-                        <View style={styles.inputContainer}>
-                            <Text> Date : *</Text>
+                        <View style={styles.DTPicker}>
+                            <MyButton
+                                onPress={showDatepicker}
+                                style={styles.buttonPicker}
+                            >
+                                Date : *
+                            </MyButton>
                             <TextInput
-                                style={{width: "90%"}}
+                                style={styles.inputPicker}
                                 mode={"outlined"}
-                                placeholder={"19/12/2021"}
+                                placeholder={"01/01/2021"}
+                                value={textDate}
+                                onChangeText={setTextDate}
+                                theme={{colors: {background: "transparent"}}}
+                                editable={false}
+                                required
+                            />
+                        </View>
+                        <View style={styles.DTPicker}>
+                            <MyButton
+                                onPress={showTimepicker}
+                                style={styles.buttonPicker}
+                            >
+                                Hours : *
+                            </MyButton>
+                            <TextInput
+                                style={styles.inputPicker}
+                                mode={"outlined"}
+                                placeholder={"01/01/2021"}
+                                value={textTime}
+                                onChangeText={setTextTime}
+                                theme={{colors: {background: "transparent"}}}
+                                editable={false}
+                                required
+                            />
+                        </View>
+                        {show && (
+                            <DateTimePicker
+                                testID="dateTimePicker"
                                 value={date}
-                                onChangeText={dateChanged}
-                                theme={{colors: {background: "transparent"}}}
-                                required
+                                mode={mode}
+                                is24Hour={true}
+                                display="default"
+                                onChange={onChange}
                             />
-                        </View>
-                        <View style={styles.inputContainer}>
-                            <Text> Horaires : *</Text>
-                            <TextInput
-                                style={{width: "90%"}}
-                                mode={"outlined"}
-                                placeholder={"16h00 - 21h00"}
-                                value={hours}
-                                onChangeText={hoursChanged}
-                                theme={{colors: {background: "transparent"}}}
-                                required
-                            />
-                        </View>
+                        )}
                         <View style={styles.inputContainer}>
                             <Text> Prix : *</Text>
                             <TextInput
                                 style={{width: "90%"}}
                                 mode={"outlined"}
-                                placeholder={"23€ adulte - 10€ enfant - gratuit enfant"}
+                                placeholder={"23 €"}
                                 value={price}
                                 onChangeText={priceChanged}
+                                keyboardType={'numeric'}
                                 theme={{colors: {background: "transparent"}}}
                                 required
                             />
@@ -252,6 +295,26 @@ const styles = StyleSheet.create({
         paddingLeft: 20,
         marginBottom: 20
     },
+    DTPicker:{
+        flexDirection: 'row',
+        alignItems: 'center',
+        width: deviceWidth,
+        paddingLeft: 20,
+        marginBottom: 20,
+        justifyContent: 'space-between'
+    },
+    buttonPicker:{
+        width: 150,
+        backgroundColor: 'transparent',
+        color: 'black',
+        borderColor: 'grey',
+        borderWidth: 0.5,
+    },
+    inputPicker:{
+        width: 150,
+        right: 37,
+        textAlign: 'center'
+    },
     poster: {
         alignItems: 'center',
         borderWidth: 1,
@@ -273,17 +336,16 @@ const styles = StyleSheet.create({
         width: 340
     },
     buttonsContainer: {
+        marginBottom: 10,
         flexDirection: 'row',
-        alignItems: 'baseline',
+        alignItems: 'center',
     },
     buttonCancel: {
         backgroundColor: colors.danger,
         width: 150,
-        marginBottom: 10
     },
     buttonSubmit: {
         width: 150,
-        marginBottom: 10
     }
 });
 

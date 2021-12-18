@@ -2,14 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f3b84260-98f3-4d40-ba51-32df81875fe4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/features/user/userSlice.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screen/HomeScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screen/HomeScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screen/ProfileScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screen/ProfileScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/MyButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/MyButton.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screen/AddEventScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screen/AddEventScreen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/screen/RegisterScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screen/RegisterScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screen/SearchScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screen/SearchScreen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/screen/SettingScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screen/SettingScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screen/SignInScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screen/SignInScreen.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,7 +105,7 @@
       <workItem from="1639665098583" duration="12323000" />
       <workItem from="1639678001991" duration="77000" />
       <workItem from="1639756029464" duration="14030000" />
-      <workItem from="1639778441195" duration="15589000" />
+      <workItem from="1639778441195" duration="23693000" />
     </task>
     <servers />
   </component>

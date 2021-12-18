@@ -238,7 +238,7 @@ const styles = StyleSheet.create({
     },
     snackbarContainer: {
         flex: 1,
-        marginTop: 20,
+        marginTop: 25,
         alignItems: 'center',
         justifyContent: 'center',
         height: 70
