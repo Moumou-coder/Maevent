@@ -7,12 +7,14 @@ import AppNavigator from "./navigation/AppNavigator";
 import {configureStore} from "@reduxjs/toolkit";
 import {Provider} from "react-redux";
 import eventReducer from './features/event/eventSlice'
+import userReducer from './features/user/userSlice'
 
 
 export default function App() {
     const store = configureStore({
         reducer: {
             event: eventReducer,
+            user: userReducer,
         },
     });
     return (

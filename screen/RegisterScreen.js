@@ -80,10 +80,9 @@ const RegisterScreen = props => {
         createUserWithEmailAndPassword(auth, formState.inputValues.email, formState.inputValues.pass)
             .then(async (userCredential) => {
                 const user = userCredential.user;
-                // const userId = user.uid
                 const userEmail = user.email
-                // console.log("user email : " + user.email + " & user id  : " + userId)
                 setDoc(doc(db, "users", userEmail), {
+                    email: formState.inputValues.email,
                     pseudo: formState.inputValues.pseudo,
                     password: formState.inputValues.pass
                 }).then(() => {
@@ -166,6 +165,7 @@ const RegisterScreen = props => {
                                 required
                             />
                         </View>
+                        {/*todo: sortir du input l'oeil pour montrer mot de passe afin d'éviter le focus*/}
                         <View style={styles.input}>
                             <MaterialIcons name="lock-outline" size={24} color="black" style={styles.icons}/>
                             <TextInput

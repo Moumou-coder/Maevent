@@ -1,14 +1,18 @@
 import React, {useState} from 'react';
-import {Alert, Dimensions, Image, Modal, ScrollView, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {Alert, Image, ScrollView, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {Switch} from 'react-native-paper';
 import MyButton from "../components/MyButton";
 import colors from "../constants/colors";
 import ModalLanguage from "../components/ModalLanguage";
 import ModalProfile from "../components/ModalProfile";
-import {getAuth, signOut} from "firebase/auth";
-import {app} from '../firebase-config'
+import {deleteUser, getAuth, signOut} from "firebase/auth";
+import {app, db} from '../firebase-config'
+import {useDispatch} from "react-redux";
+import {deleteCurrentUser, logout} from "../features/user/userSlice";
+import {collection, getDocs, query, where} from "firebase/firestore";
 
 const SettingScreen = props => {
+    const dispatch = useDispatch();
     //states
     const [isNotificationSwitchOn, setIsNotificationSwitchOn] = useState(false);
     const onToggleSwitchNotification = () => setIsNotificationSwitchOn(!isNotificationSwitchOn);
@@ -22,18 +26,41 @@ const SettingScreen = props => {
     const [isDarkSwitchOn, setIsDarkSwitchOn] = useState(false);
     const onToggleSwitchDark = () => setIsDarkSwitchOn(!isDarkSwitchOn);
 
+    const currentUserEmail = props.route.params.currentUser.email
+
     //signOut
     const handleSignOut = () => {
+        dispatch(logout())
         const auth = getAuth(app);
         signOut(auth).then(() => {
-            testNavigation()
+            rootNavigation()
+        }).catch((error) => {
+            Alert.alert(error)
+        });
+    }
+    //delete the current User of firebase
+    const deleteThisUser = async () => {
+        const u = query(collection(db, "users"), where("email", "==", currentUserEmail));
+        const querySnapshot = await getDocs(u);
+        querySnapshot.forEach((docEmail) => {
+            dispatch(deleteCurrentUser(docEmail.id))
+            rootNavigation()
+        });
+        deleteUserAuth()
+    }
+    const deleteUserAuth = () => {
+        const auth = getAuth();
+        const user = auth.currentUser;
+
+        deleteUser(user).then(() => {
+            console.log("user est bien supprimé de l'auth ")
         }).catch((error) => {
             Alert.alert(error)
         });
     }
 
     //navigation to root (signIn)
-    const testNavigation = () => {
+    const rootNavigation = () => {
         props.navigation.replace('SignIn')
     }
 
@@ -85,7 +112,12 @@ const SettingScreen = props => {
                         </MyButton>
                     </View>
                     <View style={styles.buttonDeleteContainer}>
-                        <MyButton style={styles.buttonDelete}> Supprimer compte </MyButton>
+                        <MyButton
+                            style={styles.buttonDelete}
+                            onPress={deleteThisUser}
+                        >
+                            Supprimer compte
+                        </MyButton>
                     </View>
                 </View>
                 <View style={styles.copyContainer}>
