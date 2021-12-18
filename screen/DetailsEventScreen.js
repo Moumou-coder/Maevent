@@ -79,16 +79,7 @@ const DetailsEventScreen = props => {
                 <View style={styles.descriptionContainer}>
                     <Text style={{color: '#696969'}}> {superEventObject.description} </Text>
                 </View>
-                {/*todo: ajouter les fonctionnalités correspondantes + navigation*/}
                 <View style={styles.buttonContainer}>
-                    <MyButton
-                        onPress={() => {
-                            console.log("edit")
-                        }}
-                        style={{width: 150,}}
-                    >
-                        Edit
-                    </MyButton>
                     <MyButton
                         onPress={deleteThisEvent}
                         style={{backgroundColor: colors.danger, width: 150,}}
@@ -171,9 +162,8 @@ const styles = StyleSheet.create({
     },
     buttonContainer: {
         marginTop: 20,
-        flexDirection: 'row',
         width: '90%',
-        justifyContent: 'space-around'
+        justifyContent: 'center'
     },
     likeButton: {
         position: 'absolute',

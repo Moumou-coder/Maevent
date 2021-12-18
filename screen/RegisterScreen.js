@@ -134,12 +134,11 @@ const RegisterScreen = props => {
                         <Text style={styles.text}>Create your account </Text>
                     </View>
                     <View>
-                        {/*TODO: error message*/}
                         <View style={styles.input}>
                             <MaterialCommunityIcons name="account-circle-outline" size={24} color="black"
                                                     style={styles.icons}/>
                             <TextInput
-                                style={{width: "85%"}}
+                                style={{width: "90%"}}
                                 mode={"flat"}
                                 label={"Pseudo"}
                                 placeholder={"Deadpool"}
@@ -153,7 +152,7 @@ const RegisterScreen = props => {
                         <View style={styles.input}>
                             <AntDesign name="mail" size={24} color="black" style={styles.icons}/>
                             <TextInput
-                                style={{width: "85%"}}
+                                style={{width: "90%"}}
                                 mode={"flat"}
                                 label={"Email"}
                                 placeholder={"exemple@hotmail.com"}
@@ -169,7 +168,7 @@ const RegisterScreen = props => {
                         <View style={styles.input}>
                             <MaterialIcons name="lock-outline" size={24} color="black" style={styles.icons}/>
                             <TextInput
-                                style={{width: "85%"}}
+                                style={{width: "90%"}}
                                 mode={"flat"}
                                 label={"Password"}
                                 placeholder={"********"}
@@ -177,19 +176,20 @@ const RegisterScreen = props => {
                                 onChangeText={inputsHandler.bind(this, 'pass')}
                                 theme={{colors: {background: "transparent"}}}
                                 secureTextEntry={isSecureEntry}
-                                right={<TextInput.Icon
-                                    name={isSecureEntry ? "eye-off" : 'eye'}
-                                    onPress={() => {
-                                        setIsSecureEntry(prev => !prev)
-                                    }}
-                                />}
                                 required
+                            />
+                            <TextInput.Icon
+                                style={styles.eyeIcon}
+                                name={isSecureEntry ? "eye-off" : 'eye'}
+                                onPress={() => {
+                                    setIsSecureEntry(prev => !prev)
+                                }}
                             />
                         </View>
                         <View style={styles.input}>
                             <MaterialIcons name="lock" size={24} color="black" style={styles.icons}/>
                             <TextInput
-                                style={{width: "85%"}}
+                                style={{width: "90%"}}
                                 mode={"flat"}
                                 label={"Confirm Password"}
                                 placeholder={"********"}
@@ -197,13 +197,14 @@ const RegisterScreen = props => {
                                 onChangeText={inputsHandler.bind(this, 'confirmPass')}
                                 theme={{colors: {background: "transparent"}}}
                                 secureTextEntry={isSecureEntryConfirm}
-                                right={<TextInput.Icon
-                                    name={isSecureEntryConfirm ? "eye-off" : 'eye'}
-                                    onPress={() => {
-                                        setIsSecureEntryConfirm(previous => !previous)
-                                    }}
-                                />}
                                 required
+                            />
+                            <TextInput.Icon
+                                style={styles.eyeIcon}
+                                name={isSecureEntryConfirm ? "eye-off" : 'eye'}
+                                onPress={() => {
+                                    setIsSecureEntryConfirm(previous => !previous)
+                                }}
                             />
                         </View>
                     </View>
@@ -234,18 +235,19 @@ const styles = StyleSheet.create({
     container: {
         justifyContent: 'center',
         alignItems: 'center',
-        marginBottom: 20
+        marginBottom: 20,
+        marginTop: 10,
     },
     snackbarContainer: {
         flex: 1,
-        marginTop: 25,
+        marginTop: 30,
         alignItems: 'center',
         justifyContent: 'center',
-        height: 70
+        height: 60
     },
     imageContainer: {
         marginTop: 5,
-        marginBottom: 20,
+        marginBottom: 30,
         alignItems: 'center'
     },
     text: {
@@ -255,17 +257,22 @@ const styles = StyleSheet.create({
     },
     icons: {
         marginTop: 10,
-        marginLeft: 5,
-        marginRight: 10
+        marginRight: 10,
     },
-
+    eyeIcon: {
+        marginTop: 20,
+        marginRight: 5,
+    },
     input: {
         flexDirection: 'row',
         alignItems: 'center',
-        marginBottom: 30
+        justifyContent: 'flex-end',
+        marginBottom: 30,
+        marginRight: 20,
+        marginLeft: 5
     },
     registerContainer: {
-        marginTop: 20,
+        marginTop: 15,
     },
     signInContainer: {
         marginTop: 20,

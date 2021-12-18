@@ -3,7 +3,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {AuthNavigator} from "./RoutersNavigator";
 
 const AppNavigator = props => {
-    return(
+    return (
         <NavigationContainer>
             <AuthNavigator/>
         </NavigationContainer>

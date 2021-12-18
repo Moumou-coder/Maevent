@@ -1,6 +1,6 @@
 import {useSelector} from "react-redux";
 import React from 'react';
-import {FlatList, Text, View} from "react-native";
+import {FlatList} from "react-native";
 import MyCard from "./MyCard";
 
 
@@ -26,7 +26,7 @@ export const ListOfEvent = props => {
         <FlatList
             data={eventArray}
             renderItem={renderEvent}
-            keyExtractor={(item,index)=>index.toString()}
+            keyExtractor={(item, index) => index.toString()}
         >
         </FlatList>
     );

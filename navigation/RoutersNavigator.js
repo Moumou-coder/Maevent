@@ -10,7 +10,7 @@ import DetailsEventScreen from "../screen/DetailsEventScreen";
 import AddEventScreen from "../screen/AddEventScreen";
 import ProfileScreen from "../screen/ProfileScreen";
 import SettingScreen from "../screen/SettingScreen";
-import SearchScreen from "../screen/SearchScreen";
+import FilterScreen from "../screen/FilterScreen";
 import CommentsScreen from "../screen/CommentsScreen";
 
 //Import Constant colors
@@ -64,8 +64,8 @@ export const Tab = () => {
                 }}
             />
             <TabNavigator.Screen
-                name={"Search"}
-                component={SearchScreen}
+                name={"Filters"}
+                component={FilterScreen}
                 options={{
                     tabBarLabel: 'Search',
                     tabBarIcon: ({color, size, focused}) => (

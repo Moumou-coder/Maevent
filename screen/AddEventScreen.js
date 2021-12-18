@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {
-    Alert, Button,
+    Alert,
     Dimensions,
     Image,
     KeyboardAvoidingView,
@@ -19,7 +19,7 @@ import * as ImagePicker from 'expo-image-picker';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import {useDispatch} from "react-redux";
 import {postEvent} from "../features/event/eventSlice";
-import { collection, doc, setDoc } from "firebase/firestore";
+import {collection, doc} from "firebase/firestore";
 import {db} from '../firebase-config'
 
 //variable dimensions to use for style
@@ -75,7 +75,8 @@ const AddEventScreen = props => {
     };
 
     // Image Picker Expo
-    const [image, setImage] = useState(null);
+    const defaultImage = "file:///data/user/0/host.exp.exponent/cache/ExperienceData/%2540anonymous%252FMaeventApp-d70132ac-6ac9-44b6-b63a-8c7ed8b02d9d/ImagePicker/36500bed-47ef-42f5-a176-db1abd06d10e.png";
+    const [image, setImage] = useState(defaultImage);
     useEffect(() => {
         (async () => {
             if (Platform.OS !== 'web') {
@@ -103,7 +104,7 @@ const AddEventScreen = props => {
     //submit form of the event
     const eventRef = doc(collection(db, "event"));
     const submitHandler = () => {
-        if (title !== '' && image != null && address !== '' && textDate !== '' && textTime !== '' && price !== '') {
+        if (title !== '' && address !== '' && textDate !== '' && textTime !== '' && price !== '') {
             const eventObject = {
                 id: eventRef.id,
                 title: title,
@@ -127,7 +128,6 @@ const AddEventScreen = props => {
         props.navigation.goBack();
     }
     return (
-        //todo: reducer
         <KeyboardAvoidingView style={{flex: 1}} behavior={"height"} keyboardVerticalOffset={10}>
             <ScrollView showsVerticalScrollIndicator={false}>
                 <View style={styles.container}>
@@ -254,7 +254,6 @@ const AddEventScreen = props => {
                             </View>
                         </View>
                     </View>
-                    {/*TODO: ajouter la vérification du formulaire & la validation */}
                     <View style={styles.buttonsContainer}>
                         <View style={{marginRight: 20}}>
                             <MyButton
@@ -295,7 +294,7 @@ const styles = StyleSheet.create({
         paddingLeft: 20,
         marginBottom: 20
     },
-    DTPicker:{
+    DTPicker: {
         flexDirection: 'row',
         alignItems: 'center',
         width: deviceWidth,
@@ -303,14 +302,14 @@ const styles = StyleSheet.create({
         marginBottom: 20,
         justifyContent: 'space-between'
     },
-    buttonPicker:{
+    buttonPicker: {
         width: 150,
         backgroundColor: 'transparent',
         color: 'black',
         borderColor: 'grey',
         borderWidth: 0.5,
     },
-    inputPicker:{
+    inputPicker: {
         width: 150,
         right: 37,
         textAlign: 'center'
@@ -325,8 +324,9 @@ const styles = StyleSheet.create({
         borderRadius: 5,
     },
     imagePoster: {
-        width: 340,
-        height: 250,
+        flex: 1,
+        width: 338,
+        height: 249,
         borderRadius: 5
     },
     img: {

@@ -4,7 +4,6 @@ import {Switch} from 'react-native-paper';
 import MyButton from "../components/MyButton";
 import colors from "../constants/colors";
 import ModalLanguage from "../components/ModalLanguage";
-import ModalProfile from "../components/ModalProfile";
 import {deleteUser, getAuth, signOut} from "firebase/auth";
 import {app, db} from '../firebase-config'
 import {useDispatch} from "react-redux";
@@ -21,7 +20,6 @@ const SettingScreen = props => {
     const onToggleSwitchLocalisation = () => setIsLocalisationSwitchOn(!isLocalisationSwitchOn);
 
     const [isModalLanguageVisible, setIsModalLanguageVisible] = useState(false)
-    const [isModalProfileVisible, setIsModalProfileVisible] = useState(false)
 
     const [isDarkSwitchOn, setIsDarkSwitchOn] = useState(false);
     const onToggleSwitchDark = () => setIsDarkSwitchOn(!isDarkSwitchOn);
@@ -70,19 +68,11 @@ const SettingScreen = props => {
                     <Image source={require('../assets/logo/Maevent_T.png')}/>
                 </View>
                 <View>
-                    <TouchableOpacity onPress={() => setIsModalProfileVisible(true)}>
+                    <TouchableOpacity onPress={() => setIsModalLanguageVisible(true)}>
                         <View style={styles.setting}>
-                            <Text style={styles.settingLabel}> Modifier profil </Text>
+                            <Text style={styles.settingLabel}> Langues </Text>
                         </View>
                     </TouchableOpacity>
-                    <ModalProfile
-                        visible={isModalProfileVisible}
-                        onPressClose={() => setIsModalProfileVisible(false)}
-                        onPressSubmit={() => {
-                            console.log("submit the changes ")
-                        }}
-                        onPressPhoto={() => console.log("changer la photo de profil")}
-                    />
                     <View style={styles.setting}>
                         <Text style={styles.settingLabel}> Notifications </Text>
                         <Switch value={isNotificationSwitchOn} onValueChange={onToggleSwitchNotification}/>
@@ -95,11 +85,6 @@ const SettingScreen = props => {
                         <Text style={styles.settingLabel}> Dark Theme </Text>
                         <Switch value={isDarkSwitchOn} onValueChange={onToggleSwitchDark}/>
                     </View>
-                    <TouchableOpacity onPress={() => setIsModalLanguageVisible(true)}>
-                        <View style={styles.setting}>
-                            <Text style={styles.settingLabel}> Langues </Text>
-                        </View>
-                    </TouchableOpacity>
                 </View>
                 <ModalLanguage visible={isModalLanguageVisible} onPress={() => setIsModalLanguageVisible(false)}/>
                 <View style={styles.buttonsContainer}>

@@ -2,7 +2,7 @@ import React from 'react';
 import {Text, View} from 'react-native';
 
 
-export const SearchScreen = () => {
+export const FilterScreen = () => {
 
     return (
         <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
@@ -11,4 +11,4 @@ export const SearchScreen = () => {
     );
 };
 
-export default SearchScreen;
+export default FilterScreen;
