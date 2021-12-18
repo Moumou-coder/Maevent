@@ -51,7 +51,6 @@ const SettingScreen = props => {
     const deleteUserAuth = () => {
         const auth = getAuth();
         const user = auth.currentUser;
-
         deleteUser(user).then(() => {
             console.log("user est bien supprimé de l'auth ")
         }).catch((error) => {
