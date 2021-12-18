@@ -6,6 +6,7 @@ import {getAuth} from "firebase/auth";
 import {app, db} from '../firebase-config'
 import { doc, getDoc } from "firebase/firestore";
 import {ListOfEvent} from "../components/ListOfEvent";
+import {useSelector} from "react-redux";
 
 const HomeScreen = props => {
 

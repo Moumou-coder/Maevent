@@ -5,10 +5,11 @@ import {AntDesign, MaterialIcons} from '@expo/vector-icons'
 import MyButton from "../components/MyButton";
 import MyButtonText from "../components/MyButtonText";
 import {getAuth, signInWithEmailAndPassword} from "firebase/auth";
-import { collection, getDocs } from "firebase/firestore";
+import {collection, doc, getDoc, getDocs} from "firebase/firestore";
 import {app, db} from '../firebase-config'
 import {useDispatch} from "react-redux";
-import {getEvent, postEvent} from "../features/event/eventSlice";
+import {getEvent} from "../features/event/eventSlice";
+import {login} from "../features/user/userSlice";
 
 //Reducer manage states of signIn
 const loginInputPost = 'LOGIN_INPUT_POST';
@@ -37,6 +38,7 @@ const signInFormReducer = (state, action) => {
 
 const SignInScreen = props => {
     const dispatch = useDispatch()
+
     //Form Reducer (states)
     const [formState, formDispatch] = useReducer(signInFormReducer, {
         inputValues: {
@@ -94,12 +96,22 @@ const SignInScreen = props => {
                     {text: 'Okay'}
                 ]);
             });
+        //fetch all document of events collection
         const querySnapshot = await getDocs(collection(db, "event"));
         querySnapshot.forEach((doc) => {
             const object = {...doc.data(), id:doc.id}
             tableau.push(object)
         })
         dispatch(getEvent(tableau));
+        //fetch the current user and push it in redux
+        const userRef = doc(db, "users", formState.inputValues.email);
+        const userSnap = await getDoc(userRef);
+        if (userSnap.exists()) {
+            dispatch(login(userSnap.data()))
+        } else {
+            // doc.data() will be undefined in this case
+            console.log("No such document!");
+        }
     }
 
     //Navigation between screens

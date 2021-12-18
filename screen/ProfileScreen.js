@@ -1,16 +1,16 @@
 import React from 'react';
-import {ScrollView, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {Avatar, Title} from 'react-native-paper';
-import MyCard from "../components/MyCard";
 import {Ionicons} from '@expo/vector-icons';
+import {useSelector} from "react-redux";
 
 
 const ProfileScreen = props => {
-
-    const username = "ProfileName";
+    const currentUser = useSelector((state) => state.user.value);
+    console.log(currentUser)
     //Navigation to settings
     const settingsNavigation = () => {
-        props.navigation.navigate('Settings')
+        props.navigation.navigate('Settings', {currentUser: currentUser})
     }
     const comments = () => {
         props.navigation.navigate('Comments')
@@ -31,7 +31,7 @@ const ProfileScreen = props => {
                 </TouchableOpacity>
                 <View style={styles.avatarContainer}>
                     <Avatar.Image size={100} source={require('../assets/avatar/profilAvatar.jpg')}/>
-                    <Title style={styles.pseudo}> {username} </Title>
+                    <Title style={styles.pseudo}> {currentUser.pseudo} </Title>
                 </View>
                 <View style={styles.descriptionContainer}>
                     <Text>
@@ -39,14 +39,11 @@ const ProfileScreen = props => {
                     </Text>
                 </View>
             </View>
-            <ScrollView showsVerticalScrollIndicator={false}>
-                <View style={styles.cardContainer}>
-                    <MyCard
-                        onPressComment={() => comments()}
-                        onPressDetails={() => detailsEvent()}
-                    />
-                </View>
-            </ScrollView>
+            {/*<ScrollView showsVerticalScrollIndicator={false}>*/}
+            {/*    <ListOfEvent*/}
+            {/*        nav={props}*/}
+            {/*    />*/}
+            {/*</ScrollView>*/}
         </View>
     );
 }
