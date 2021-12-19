@@ -17,8 +17,15 @@ const MyCard = props => {
         description: props.description,
     }
 
+    //fetch information api Json
+    const countryInfoApi = "https://restcountries.com/v3.1/name/";
+    const myCountry = eventObject.country
+
     const detailsEventNavigation = () => {
         props.nav.navigation.navigate('DetailsEvent', eventObject)
+    }
+    const commentsEventNavigation = () => {
+        props.nav.navigation.navigate('Comments', eventObject)
     }
 
     return (
@@ -36,7 +43,7 @@ const MyCard = props => {
                 </View>
                 <View style={styles.actionsCard}>
                     {/*todo : fonctionnalité commentaires */}
-                    <TouchableOpacity onPress={props.onPressComment} style={{marginRight: 25}}>
+                    <TouchableOpacity onPress={commentsEventNavigation} style={{marginRight: 25}}>
                         <MaterialCommunityIcons name="comment-outline" size={25} color="black"/>
                     </TouchableOpacity>
                     <TouchableOpacity style={{marginLeft: 25}}>
@@ -72,16 +79,18 @@ const styles = StyleSheet.create({
         marginHorizontal: 10,
         marginVertical: 3,
         alignItems: 'center',
-        width: '40%'
+        width: '40%',
+        height: 180,
+        justifyContent: 'space-between',
+
     },
     titleCard: {
         fontWeight: 'bold',
         color: colors.primary,
-        marginBottom: 50
+        textAlign: 'center'
     },
     locationContainer: {
         flexDirection: 'row',
-        marginBottom: 50
     },
     actionsCard: {
         flexDirection: 'row',

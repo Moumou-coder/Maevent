@@ -4,16 +4,9 @@ import {MaterialIcons} from '@expo/vector-icons';
 import {ListOfEvent} from "../components/ListOfEvent";
 
 const HomeScreen = props => {
-
     //Navigations
     const addingEvent = () => {
         props.navigation.navigate('AddEvent')
-    }
-    const detailsEvent = () => {
-        props.navigation.navigate('DetailsEvent')
-    }
-    const comments = () => {
-        props.navigation.navigate('Comments')
     }
 
     return (
@@ -26,7 +19,9 @@ const HomeScreen = props => {
                 </TouchableOpacity>
             </View>
             <View style={styles.listEventContainer}>
-                <ListOfEvent nav={props}/>
+                <ListOfEvent
+                    nav={props}
+                />
             </View>
         </View>
     );
@@ -41,13 +36,13 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         marginHorizontal: 15,
         marginTop: 35,
-        marginBottom:5,
+        marginBottom: 5,
         borderBottomWidth: 1,
         borderBottomColor: '#dcdcdc',
         paddingBottom: 10,
     },
-    listEventContainer:{
-        marginBottom:140
+    listEventContainer: {
+        marginBottom: 140
     }
 });
 

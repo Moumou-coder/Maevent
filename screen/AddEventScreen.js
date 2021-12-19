@@ -244,6 +244,7 @@ const AddEventScreen = props => {
                                 onChangeText={descriptionChanged}
                                 theme={{colors: {background: "transparent"}}}
                                 autoCorrect={true}
+                                multiline={true}
                             />
                         </View>
                         {/*TODO: ajouter google maps - l'endroit apparait quand on rajoute une adresse dans la input adress (dynamiquement)*/}

@@ -115,13 +115,12 @@ const SettingScreen = props => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        marginTop: 50,
-        marginBottom: 50,
+        marginTop: 100,
+        marginBottom: 20
     },
     imageContainer: {
         alignItems: 'center',
-        marginTop: 30,
-        marginBottom: 50
+        marginBottom: 100
     },
     setting: {
         borderBottomWidth: 1,
@@ -137,8 +136,8 @@ const styles = StyleSheet.create({
     },
     buttonsContainer: {
         alignItems: 'center',
-        marginTop: 50,
-        marginBottom: 10
+        marginTop: 80,
+        marginBottom: 60
     },
     buttonLogOutContainer: {
         marginBottom: 10,
@@ -151,8 +150,6 @@ const styles = StyleSheet.create({
     },
     copyContainer: {
         alignItems: 'center',
-        marginBottom: 10,
-        marginTop: 20
     }
 });
 

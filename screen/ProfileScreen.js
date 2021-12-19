@@ -7,7 +7,6 @@ import {useSelector} from "react-redux";
 
 const ProfileScreen = props => {
     const currentUser = useSelector((state) => state.user.value);
-    console.log(currentUser)
     //Navigation to settings
     const settingsNavigation = () => {
         props.navigation.navigate('Settings', {currentUser: currentUser})
