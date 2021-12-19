@@ -37,6 +37,10 @@ const AddEventScreen = props => {
     const addressChanged = (text) => {
         setAddress(text)
     }
+    const [country, setCountry] = useState('');
+    const countryChanged = (text) => {
+        setCountry(text)
+    }
     const [price, setPrice] = useState('');
     const priceChanged = (text) => {
         setPrice(text)
@@ -104,12 +108,13 @@ const AddEventScreen = props => {
     //submit form of the event
     const eventRef = doc(collection(db, "event"));
     const submitHandler = () => {
-        if (title !== '' && address !== '' && textDate !== '' && textTime !== '' && price !== '') {
+        if (title !== '' && address !== '' && country !== '' && textDate !== '' && textTime !== '' && price !== '') {
             const eventObject = {
                 id: eventRef.id,
                 title: title,
                 image: image,
                 address: address,
+                country: country,
                 date: textDate,
                 hours: textTime,
                 price: price,
@@ -164,13 +169,25 @@ const AddEventScreen = props => {
                             </View>
                         </View>
                         <View style={styles.inputContainer}>
-                            <Text> Address : *</Text>
+                            <Text> Address(rue,n°,code postal) : *</Text>
                             <TextInput
                                 style={{width: "90%"}}
                                 mode={"outlined"}
                                 placeholder={"Rue des folies 15, 1000 Brussels"}
                                 value={address}
                                 onChangeText={addressChanged}
+                                theme={{colors: {background: "transparent"}}}
+                                required
+                            />
+                        </View>
+                        <View style={styles.inputContainer}>
+                            <Text> Country : *</Text>
+                            <TextInput
+                                style={{width: "90%"}}
+                                mode={"outlined"}
+                                placeholder={"Belgique"}
+                                value={country}
+                                onChangeText={countryChanged}
                                 theme={{colors: {background: "transparent"}}}
                                 required
                             />

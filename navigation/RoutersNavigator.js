@@ -12,6 +12,8 @@ import ProfileScreen from "../screen/ProfileScreen";
 import SettingScreen from "../screen/SettingScreen";
 import FilterScreen from "../screen/FilterScreen";
 import CommentsScreen from "../screen/CommentsScreen";
+import CountryScreen from "../screen/CountryScreen";
+
 
 //Import Constant colors
 import colors from "../constants/colors";
@@ -101,6 +103,7 @@ export const HomeNavigator = () => {
     return (
         <HomeStackNavigator.Navigator screenOptions={defaultScreenOptions}>
             <HomeStackNavigator.Screen name={"HomeEvent"} component={Tab}/>
+            <HomeStackNavigator.Screen name={"CountryInfo"} component={CountryScreen}/>
             <HomeStackNavigator.Screen name={"DetailsEvent"} component={DetailsEventScreen}/>
             <HomeStackNavigator.Screen name={"AddEvent"} component={AddEventScreen}/>
             <HomeStackNavigator.Screen name={"Comments"} component={CommentsScreen}/>

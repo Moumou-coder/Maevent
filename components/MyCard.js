@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {Entypo, MaterialCommunityIcons, MaterialIcons} from '@expo/vector-icons';
 import {Title} from "react-native-paper";
@@ -11,6 +11,7 @@ const MyCard = props => {
         title: props.title,
         image: props.image,
         address: props.address,
+        country: props.country,
         date: props.date,
         hours: props.hours,
         price: props.price,
@@ -18,14 +19,26 @@ const MyCard = props => {
     }
 
     //fetch information api Json
-    const countryInfoApi = "https://restcountries.com/v3.1/name/";
     const myCountry = eventObject.country
+    const countryInfoApi = "https://restcountries.com/v3.1/name/" + myCountry + "?fields=name,capital,subregion,languages,currrencies,demonyms,maps,population,timezones,flags,altSpellings";
+    const [countryData, setCountryData] = useState([]);
+
+
+    useEffect(() => {
+        fetch(countryInfoApi)
+            .then((result) => result.json())
+            .then((json) => setCountryData(json))
+            .catch((error) => alert(error))
+    }, [])
 
     const detailsEventNavigation = () => {
         props.nav.navigation.navigate('DetailsEvent', eventObject)
     }
     const commentsEventNavigation = () => {
         props.nav.navigation.navigate('Comments', eventObject)
+    }
+    const CountryScreenNav = () => {
+        props.nav.navigation.navigate('CountryInfo', countryData)
     }
 
     return (
@@ -39,7 +52,9 @@ const MyCard = props => {
                 </View>
                 <View style={styles.locationContainer}>
                     <Entypo name="location-pin" size={20} color='#4169e1'/>
-                    <Text style={styles.addressEvent}>{props.address}</Text>
+                    <TouchableOpacity onPress={CountryScreenNav}>
+                        <Text style={styles.addressEvent}>{props.country}</Text>
+                    </TouchableOpacity>
                 </View>
                 <View style={styles.actionsCard}>
                     {/*todo : fonctionnalité commentaires */}

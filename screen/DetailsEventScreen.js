@@ -30,9 +30,10 @@ const DetailsEventScreen = props => {
     const goBack = () => {
         props.navigation.goBack();
     }
+    //todo: supprimer du details screen et mettre dans home directement
     const [isFavClicked, setIsFavClicked] = useState(false);
     const onToggleFav = () => setIsFavClicked(!isFavClicked);
-    console.log(isFavClicked)
+    // console.log(isFavClicked)
 
     return (
         <ScrollView>
@@ -50,7 +51,7 @@ const DetailsEventScreen = props => {
                             </TouchableOpacity>
                             <TouchableOpacity style={styles.locationContent} activeOpacity={0.5}>
                                 <Entypo name="location-pin" size={24} color={colors.white}/>
-                                <Text style={styles.txtLocation}> 0 km away</Text>
+                                <Text style={styles.txtLocation}>{superEventObject.address}</Text>
                             </TouchableOpacity>
                             <View style={{marginLeft: 5}}>
                                 <Title style={styles.posterTxt}> {superEventObject.title} </Title>

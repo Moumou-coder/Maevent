@@ -2,14 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f3b84260-98f3-4d40-ba51-32df81875fe4" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/screen/CountryScreen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Notes/Mouad.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Notes/Mouad.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ListOfEvent.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/ListOfEvent.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/MyCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/MyCard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/features/event/eventSlice.js" beforeDir="false" afterPath="$PROJECT_DIR$/features/event/eventSlice.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navigation/RoutersNavigator.js" beforeDir="false" afterPath="$PROJECT_DIR$/navigation/RoutersNavigator.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/screen/AddEventScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screen/AddEventScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screen/CommentsScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screen/CommentsScreen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/screen/DetailsEventScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screen/DetailsEventScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screen/HomeScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screen/HomeScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screen/ProfileScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screen/ProfileScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screen/SettingScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screen/SettingScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screen/SignInScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screen/SignInScreen.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,7 +111,9 @@
       <workItem from="1639845184971" duration="2957000" />
       <workItem from="1639853693966" duration="8952000" />
       <workItem from="1639866008433" duration="744000" />
-      <workItem from="1639874862445" duration="4690000" />
+      <workItem from="1639874862445" duration="12031000" />
+      <workItem from="1639889029294" duration="630000" />
+      <workItem from="1639916495419" duration="7850000" />
     </task>
     <servers />
   </component>

@@ -109,7 +109,7 @@ const SignInScreen = props => {
             dispatch(login(userSnap.data()))
         } else {
             // doc.data() will be undefined in this case
-            console.log("No such document!");
+            console.log("No such document about the user!");
         }
     }
 

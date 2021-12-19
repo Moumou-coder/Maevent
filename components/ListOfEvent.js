@@ -14,6 +14,7 @@ export const ListOfEvent = props => {
                 title={dataEvent.item.title}
                 image={dataEvent.item.image}
                 address={dataEvent.item.address}
+                country={dataEvent.item.country}
                 date={dataEvent.item.date}
                 hours={dataEvent.item.hours}
                 price={dataEvent.item.price}
