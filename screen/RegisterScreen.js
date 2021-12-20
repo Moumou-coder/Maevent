@@ -164,7 +164,6 @@ const RegisterScreen = props => {
                                 required
                             />
                         </View>
-                        {/*todo: sortir du input l'oeil pour montrer mot de passe afin d'éviter le focus*/}
                         <View style={styles.input}>
                             <MaterialIcons name="lock-outline" size={24} color="black" style={styles.icons}/>
                             <TextInput

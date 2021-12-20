@@ -1,5 +1,5 @@
 import React, {useCallback, useReducer, useState} from 'react';
-import {Alert, Dimensions, Image, KeyboardAvoidingView, ScrollView, StyleSheet, Text, View} from 'react-native';
+import {Alert, Image, KeyboardAvoidingView, ScrollView, StyleSheet, Text, View} from 'react-native';
 import {TextInput} from "react-native-paper";
 import {AntDesign, MaterialIcons} from '@expo/vector-icons'
 import MyButton from "../components/MyButton";
@@ -10,8 +10,6 @@ import {app, db} from '../firebase-config'
 import {useDispatch} from "react-redux";
 import {getEvent} from "../features/event/eventSlice";
 import {login} from "../features/user/userSlice";
-
-const deviceWidth = Dimensions.get('window').width
 
 //Reducer manage states of signIn
 const loginInputPost = 'LOGIN_INPUT_POST';
@@ -86,8 +84,6 @@ const SignInScreen = props => {
         signInWithEmailAndPassword(auth, formState.inputValues.email, formState.inputValues.password)
             .then((userCredential) => {
                 const user = userCredential.user;
-                console.log("email", formState.inputValues.email)
-                console.log("pass", formState.inputValues.password)
                 homeNavigation()
             })
             .catch((error) => {

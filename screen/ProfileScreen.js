@@ -33,11 +33,6 @@ const ProfileScreen = props => {
                     <Title style={styles.pseudo}> {currentUser.pseudo} </Title>
                 </View>
             </View>
-            {/*<ScrollView showsVerticalScrollIndicator={false}>*/}
-            {/*    <ListOfEvent*/}
-            {/*        nav={props}*/}
-            {/*    />*/}
-            {/*</ScrollView>*/}
         </View>
     );
 }

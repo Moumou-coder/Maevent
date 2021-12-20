@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-import {Entypo, MaterialCommunityIcons, MaterialIcons} from '@expo/vector-icons';
+import {Entypo} from '@expo/vector-icons';
 import {Title} from "react-native-paper";
 import colors from "../constants/colors";
 import MyButton from "./MyButton";
@@ -51,7 +51,8 @@ const MyCard = props => {
                 <View style={styles.locationContainer}>
                     <Entypo name="location-pin" size={20} color='#4169e1' style={{left: 8}}/>
                     <TouchableOpacity onPress={() => {
-                        console.log("redirection google maps avec pointeur")}}>
+                        console.log("redirection google maps avec pointeur")
+                    }}>
                         <Text style={styles.addressEvent}>{props.address}</Text>
                     </TouchableOpacity>
                 </View>
@@ -108,8 +109,7 @@ const styles = StyleSheet.create({
         color: '#4169e1',
         textAlign: 'center'
     },
-    countryContainer: {
-    },
+    countryContainer: {},
     btnCountry: {
         width: 150,
         backgroundColor: 'transparent',
