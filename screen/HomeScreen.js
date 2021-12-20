@@ -12,7 +12,6 @@ const HomeScreen = props => {
     return (
         <View style={styles.screenContainer}>
             <View style={styles.headerContainer}>
-                {/*todo: resize image, la mettre tout à gauche, boutton reste à sa palce */}
                 <Image source={require('../assets/logo/Maevent_T.png')}/>
                 <TouchableOpacity onPress={() => addingEvent()}>
                     <MaterialIcons name="add-circle-outline" size={30} color="black"/>

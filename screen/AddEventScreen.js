@@ -152,7 +152,6 @@ const AddEventScreen = props => {
                                 required
                             />
                         </View>
-                        {/*TODO: une image default if il y a encore aucune image ( dans le state image par default */}
                         <View style={styles.inputContainer}>
                             <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
                                 <Text> Poster *</Text>

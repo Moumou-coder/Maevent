@@ -2,21 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f3b84260-98f3-4d40-ba51-32df81875fe4" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Notes/Mouad.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ModalLanguage.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/ModalLanguage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/MyButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/MyButton.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/MyButtonText.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/MyButtonText.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/MyCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/MyCard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/features/user/userSlice.js" beforeDir="false" afterPath="$PROJECT_DIR$/features/user/userSlice.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/firebase-config.js" beforeDir="false" afterPath="$PROJECT_DIR$/firebase-config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navigation/RoutersNavigator.js" beforeDir="false" afterPath="$PROJECT_DIR$/navigation/RoutersNavigator.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/screen/AddEventScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screen/AddEventScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screen/CommentsScreen.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/screen/ProfileScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screen/ProfileScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screen/RegisterScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screen/RegisterScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screen/SettingScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screen/SettingScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screen/SignInScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screen/SignInScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screen/DetailsEventScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screen/DetailsEventScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screen/HomeScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screen/HomeScreen.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,7 +109,7 @@
       <workItem from="1639916495419" duration="8337000" />
       <workItem from="1639947439459" duration="1787000" />
       <workItem from="1639953606112" duration="1062000" />
-      <workItem from="1640027212021" duration="3880000" />
+      <workItem from="1640027212021" duration="4154000" />
     </task>
     <servers />
   </component>

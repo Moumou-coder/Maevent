@@ -30,7 +30,6 @@ const DetailsEventScreen = props => {
     const goBack = () => {
         props.navigation.goBack();
     }
-    //todo: supprimer du details screen et mettre dans home directement
     const [isFavClicked, setIsFavClicked] = useState(false);
     const onToggleFav = () => setIsFavClicked(!isFavClicked);
     // console.log(isFavClicked)
@@ -41,7 +40,6 @@ const DetailsEventScreen = props => {
                 <View style={styles.posterContainer}>
                     <ImageBackground source={{uri: superEventObject.image}} style={styles.posterEvent}>
                         <View style={styles.contentPosterContainer}>
-                            {/*todo: ajouter icon heart quand c'est deja rajoutee ou lors du clickEvent*/}
                             <TouchableOpacity style={styles.backButton} onPress={() => goBack()}>
                                 <Ionicons name="arrow-back" size={35} color={colors.white}/>
                             </TouchableOpacity>
