@@ -76,7 +76,6 @@ const SignInScreen = props => {
             ]);
         } else {
             handleLogin().then();
-            homeNavigation()
         }
     });
 
@@ -87,6 +86,9 @@ const SignInScreen = props => {
         signInWithEmailAndPassword(auth, formState.inputValues.email, formState.inputValues.password)
             .then((userCredential) => {
                 const user = userCredential.user;
+                console.log("email", formState.inputValues.email)
+                console.log("pass", formState.inputValues.password)
+                homeNavigation()
             })
             .catch((error) => {
                 const errorCode = error.code;

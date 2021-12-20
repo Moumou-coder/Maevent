@@ -10,7 +10,6 @@ import DetailsEventScreen from "../screen/DetailsEventScreen";
 import AddEventScreen from "../screen/AddEventScreen";
 import ProfileScreen from "../screen/ProfileScreen";
 import SettingScreen from "../screen/SettingScreen";
-import FilterScreen from "../screen/FilterScreen";
 import CommentsScreen from "../screen/CommentsScreen";
 import CountryScreen from "../screen/CountryScreen";
 
@@ -59,20 +58,6 @@ export const Tab = () => {
                     tabBarIcon: ({color, size, focused}) => (
                         <Entypo
                             name="home"
-                            size={defaultSize}
-                            color={focused ? colors.primary : colors.secondary}
-                        />
-                    ),
-                }}
-            />
-            <TabNavigator.Screen
-                name={"Filters"}
-                component={FilterScreen}
-                options={{
-                    tabBarLabel: 'Search',
-                    tabBarIcon: ({color, size, focused}) => (
-                        <FontAwesome
-                            name="filter"
                             size={defaultSize}
                             color={focused ? colors.primary : colors.secondary}
                         />

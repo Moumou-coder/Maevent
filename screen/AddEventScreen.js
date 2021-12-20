@@ -49,7 +49,7 @@ const AddEventScreen = props => {
     const descriptionChanged = (text) => {
         setDescription(text)
     }
-    const [date, setDate] = useState(new Date(1598051730000));
+    const [date, setDate] = useState(new Date(1639999995555));
     const [mode, setMode] = useState('date');
     const [show, setShow] = useState(false);
     const [textDate, setTextDate] = useState('');

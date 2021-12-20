@@ -3,6 +3,7 @@ import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {Entypo, MaterialCommunityIcons, MaterialIcons} from '@expo/vector-icons';
 import {Title} from "react-native-paper";
 import colors from "../constants/colors";
+import MyButton from "./MyButton";
 
 const MyCard = props => {
 
@@ -34,9 +35,6 @@ const MyCard = props => {
     const detailsEventNavigation = () => {
         props.nav.navigation.navigate('DetailsEvent', eventObject)
     }
-    const commentsEventNavigation = () => {
-        props.nav.navigation.navigate('Comments', eventObject)
-    }
     const CountryScreenNav = () => {
         props.nav.navigation.navigate('CountryInfo', countryData)
     }
@@ -51,20 +49,19 @@ const MyCard = props => {
                     <Title style={styles.titleCard}>{props.title}</Title>
                 </View>
                 <View style={styles.locationContainer}>
-                    <Entypo name="location-pin" size={20} color='#4169e1'/>
-                    <TouchableOpacity onPress={CountryScreenNav}>
-                        <Text style={styles.addressEvent}>{props.country}</Text>
+                    <Entypo name="location-pin" size={20} color='#4169e1' style={{left: 8}}/>
+                    <TouchableOpacity onPress={() => {
+                        console.log("redirection google maps avec pointeur")}}>
+                        <Text style={styles.addressEvent}>{props.address}</Text>
                     </TouchableOpacity>
                 </View>
-                <View style={styles.actionsCard}>
-                    {/*todo : fonctionnalité commentaires */}
-                    <TouchableOpacity onPress={commentsEventNavigation} style={{marginRight: 25}}>
-                        <MaterialCommunityIcons name="comment-outline" size={25} color="black"/>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={{marginLeft: 25}}>
-                        {/*todo: rajouter icon favorite (rempli) quand activity se retrouve déjà dans le profil*/}
-                        <MaterialIcons name="favorite-outline" size={25} color="black"/>
-                    </TouchableOpacity>
+                <View style={styles.countryContainer}>
+                    <MyButton
+                        onPress={CountryScreenNav}
+                        style={styles.btnCountry}
+                    >
+                        {props.country} ➡
+                    </MyButton>
                 </View>
             </View>
         </View>
@@ -107,11 +104,18 @@ const styles = StyleSheet.create({
     locationContainer: {
         flexDirection: 'row',
     },
-    actionsCard: {
-        flexDirection: 'row',
-    },
     addressEvent: {
-        color: '#4169e1'
+        color: '#4169e1',
+        textAlign: 'center'
+    },
+    countryContainer: {
+    },
+    btnCountry: {
+        width: 150,
+        backgroundColor: 'transparent',
+        color: 'black',
+        borderColor: colors.secondary,
+        borderWidth: 0.5,
     },
 });
 

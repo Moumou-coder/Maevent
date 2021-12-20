@@ -23,8 +23,8 @@ const CommentsScreen = props => {
                 />
                 <Title> Commentaires </Title>
             </View>
-            <View style={styles.inputBottomField}>
-            </View>
+            {/*<View style={styles.inputBottomField}>*/}
+            {/*</View>*/}
         </View>
     );
 }
