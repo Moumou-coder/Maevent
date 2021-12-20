@@ -1,6 +1,6 @@
 import {useSelector} from "react-redux";
 import React from 'react';
-import {FlatList, Text, View} from "react-native";
+import {FlatList} from "react-native";
 import MyCard from "./MyCard";
 
 
@@ -14,6 +14,7 @@ export const ListOfEvent = props => {
                 title={dataEvent.item.title}
                 image={dataEvent.item.image}
                 address={dataEvent.item.address}
+                country={dataEvent.item.country}
                 date={dataEvent.item.date}
                 hours={dataEvent.item.hours}
                 price={dataEvent.item.price}
@@ -26,7 +27,7 @@ export const ListOfEvent = props => {
         <FlatList
             data={eventArray}
             renderItem={renderEvent}
-            keyExtractor={(item,index)=>index.toString()}
+            keyExtractor={(item, index) => index.toString()}
         >
         </FlatList>
     );

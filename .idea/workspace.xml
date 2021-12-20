@@ -3,13 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="f3b84260-98f3-4d40-ba51-32df81875fe4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/MyButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/MyButton.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/MyCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/MyCard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navigation/RoutersNavigator.js" beforeDir="false" afterPath="$PROJECT_DIR$/navigation/RoutersNavigator.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/screen/AddEventScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screen/AddEventScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screen/RegisterScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screen/RegisterScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screen/SearchScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screen/SearchScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screen/SettingScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screen/SettingScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screen/CommentsScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screen/CommentsScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screen/FilterScreen.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/screen/SignInScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screen/SignInScreen.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,7 +104,16 @@
       <workItem from="1639665098583" duration="12323000" />
       <workItem from="1639678001991" duration="77000" />
       <workItem from="1639756029464" duration="14030000" />
-      <workItem from="1639778441195" duration="23693000" />
+      <workItem from="1639778441195" duration="25723000" />
+      <workItem from="1639845184971" duration="2957000" />
+      <workItem from="1639853693966" duration="8952000" />
+      <workItem from="1639866008433" duration="744000" />
+      <workItem from="1639874862445" duration="12031000" />
+      <workItem from="1639889029294" duration="630000" />
+      <workItem from="1639916495419" duration="8337000" />
+      <workItem from="1639947439459" duration="1787000" />
+      <workItem from="1639953606112" duration="1062000" />
+      <workItem from="1640027212021" duration="2249000" />
     </task>
     <servers />
   </component>

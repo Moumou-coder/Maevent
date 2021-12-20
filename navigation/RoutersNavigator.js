@@ -10,8 +10,9 @@ import DetailsEventScreen from "../screen/DetailsEventScreen";
 import AddEventScreen from "../screen/AddEventScreen";
 import ProfileScreen from "../screen/ProfileScreen";
 import SettingScreen from "../screen/SettingScreen";
-import SearchScreen from "../screen/SearchScreen";
 import CommentsScreen from "../screen/CommentsScreen";
+import CountryScreen from "../screen/CountryScreen";
+
 
 //Import Constant colors
 import colors from "../constants/colors";
@@ -64,20 +65,6 @@ export const Tab = () => {
                 }}
             />
             <TabNavigator.Screen
-                name={"Search"}
-                component={SearchScreen}
-                options={{
-                    tabBarLabel: 'Search',
-                    tabBarIcon: ({color, size, focused}) => (
-                        <FontAwesome
-                            name="filter"
-                            size={defaultSize}
-                            color={focused ? colors.primary : colors.secondary}
-                        />
-                    ),
-                }}
-            />
-            <TabNavigator.Screen
                 name={"Profile"}
                 component={ProfileNavigator}
                 options={{
@@ -101,6 +88,7 @@ export const HomeNavigator = () => {
     return (
         <HomeStackNavigator.Navigator screenOptions={defaultScreenOptions}>
             <HomeStackNavigator.Screen name={"HomeEvent"} component={Tab}/>
+            <HomeStackNavigator.Screen name={"CountryInfo"} component={CountryScreen}/>
             <HomeStackNavigator.Screen name={"DetailsEvent"} component={DetailsEventScreen}/>
             <HomeStackNavigator.Screen name={"AddEvent"} component={AddEventScreen}/>
             <HomeStackNavigator.Screen name={"Comments"} component={CommentsScreen}/>

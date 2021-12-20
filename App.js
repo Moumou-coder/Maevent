@@ -1,5 +1,5 @@
 import {StatusBar} from 'expo-status-bar';
-import React, {useReducer} from 'react';
+import React from 'react';
 import {SafeAreaView, StyleSheet} from 'react-native';
 //navigation
 import AppNavigator from "./navigation/AppNavigator";

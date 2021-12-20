@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {StyleSheet, TouchableOpacity, View} from 'react-native';
 import {Avatar, Title} from 'react-native-paper';
 import {Ionicons} from '@expo/vector-icons';
 import {useSelector} from "react-redux";
@@ -7,7 +7,6 @@ import {useSelector} from "react-redux";
 
 const ProfileScreen = props => {
     const currentUser = useSelector((state) => state.user.value);
-    console.log(currentUser)
     //Navigation to settings
     const settingsNavigation = () => {
         props.navigation.navigate('Settings', {currentUser: currentUser})
@@ -32,11 +31,6 @@ const ProfileScreen = props => {
                 <View style={styles.avatarContainer}>
                     <Avatar.Image size={100} source={require('../assets/avatar/profilAvatar.jpg')}/>
                     <Title style={styles.pseudo}> {currentUser.pseudo} </Title>
-                </View>
-                <View style={styles.descriptionContainer}>
-                    <Text>
-                        voici une description sur ma personnalité
-                    </Text>
                 </View>
             </View>
             {/*<ScrollView showsVerticalScrollIndicator={false}>*/}
@@ -66,15 +60,13 @@ const styles = StyleSheet.create({
     avatarContainer: {
         flexDirection: 'row',
         alignItems: 'flex-end',
-        marginBottom: 10
+        marginBottom: 10,
     },
     pseudo: {
         color: '#191970',
-        marginLeft: 20
+        marginLeft: 20,
+        fontSize: 25
     },
-    descriptionContainer: {
-        marginVertical: 10
-    }
 });
 
 export default ProfileScreen;

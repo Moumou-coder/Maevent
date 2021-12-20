@@ -1,12 +1,11 @@
-import React, {useState} from 'react';
-import {StyleSheet, Text, View, TouchableOpacity, Modal} from 'react-native';
-import colors from "../constants/colors";
+import React from 'react';
+import {Modal, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {AntDesign, MaterialIcons} from "@expo/vector-icons";
 
 
 const ModalLanguage = props => {
 
-    return(
+    return (
         <Modal visible={props.visible} animationType={'slide'}>
             <View style={styles.modalContainer}>
                 <View style={{flexDirection: 'row', marginTop: 20, marginLeft: 5, alignItems: 'center'}}>
@@ -23,8 +22,8 @@ const ModalLanguage = props => {
             {/*TODO: DONNER UN ID POUR CHAQUE LANGUE AVEC SWITCH CASE*/}
             <View>
                 <TouchableOpacity onPress={() => console.log('french')}>
-                    <View style={styles.language} >
-                        <Text >
+                    <View style={styles.language}>
+                        <Text>
                             Français (france)
                         </Text>
                         <AntDesign name="check" size={24} color="#000080" style={styles.checkIcon}/>
@@ -37,29 +36,29 @@ const ModalLanguage = props => {
                         </Text>
                     </View>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => console.log('Neerlandais')}>
-                    <View style={styles.language}>
-                        <Text>
-                            Nederlands (Belgie)
-                        </Text>
-                    </View>
-                </TouchableOpacity>
+                {/*<TouchableOpacity onPress={() => console.log('Neerlandais')}>*/}
+                {/*    <View style={styles.language}>*/}
+                {/*        <Text>*/}
+                {/*            Nederlands (Belgie)*/}
+                {/*        </Text>*/}
+                {/*    </View>*/}
+                {/*</TouchableOpacity>*/}
             </View>
         </Modal>
     );
 }
 
 const styles = StyleSheet.create({
-    modalContainer:{
+    modalContainer: {
         marginBottom: 20
     },
-    language:{
+    language: {
         height: 20,
         margin: 20,
         flexDirection: 'row',
         alignItems: 'center',
     },
-    checkIcon:{
+    checkIcon: {
         marginLeft: 12
     }
 });

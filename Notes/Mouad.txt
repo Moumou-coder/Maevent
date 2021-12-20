@@ -1,66 +1,25 @@
-DatePicker - trop de warnings
+no notes for the moment, all is ok
 
-<View style={styles.inputContainer}>
-                            <Text> Date :*</Text>
-                            <DatePicker
-                                style={{width: "90%", marginTop: 5}}
-                                date={date}
-                                mode="date"
-                                placeholder="select date"
-                                format="DD/MM/YYYY"
-                                minDate="01-01-2021"
-                                maxDate="01-01-2023"
-                                confirmBtnText="Confirm"
-                                cancelBtnText="Cancel"
-                                customStyles={{
-                                    dateIcon: {
-                                        position: 'absolute',
-                                        right: -5,
-                                        top: 4,
-                                        marginLeft: 0,
-                                    },
-                                    dateInput: {
-                                        borderColor : "gray",
-                                        alignItems: "flex-start",
-                                        borderWidth: 1,
-                                        borderRadius: 4,
-                                        height: 45,
-                                    },
-                                }}
-                                onDateChange={(date) => {
-                                    setDate(date);
-                                }}
-                            />
-                        </View>
-
-// screens manually  :
-
-//importation des different screens
-import SignInScreen from "./screen/SignInScreen"
-import RegisterScreen from "./screen/RegisterScreen";
-import HomeScreen from "./screen/HomeScreen";
-import ProfileScreen from "./screen/ProfileScreen";
-import SettingScreen from "./screen/SettingScreen";
-import AddEventScreen from "./screen/AddEventScreen";
-import DetailsEventScreen from "./screen/DetailsEventScreen";
-import TestScreen from "./screen/TestScreen";
-
-
-// let content = <SignInScreen/>
-// let content = <RegisterScreen />
-// let content = <HomeScreen />
-// let content = <ProfileScreen/>
-// let content = <SettingScreen/>
-// let content = <AddEventScreen/>
-// let content = <DetailsEventScreen/>
-// let content = <TestScreen/>
-
-Si nécessaire voici databaseURL firebase : databaseURL: 'https://maevent-app.firebaseio.com',
-
-pour le keyboardType --> date et heure :                                 keyboardType={'numeric'}
-
-//todo: régler ce warning quand tout sera fait !!!
-Setting a timer for a long period of time, i.e. multiple minutes, is a performance and correctness issue on Android as it keeps the timer module awake, and timers can only be called when
-the app is in the foreground. See https://github.com/facebook/react-native/issues/12981 for more info.
-(Saw setTimeout with duration 573941ms)
+ <View>
+                <Title style={styles.title}> Pays : [Belgique - (BE) ]</Title>
+            </View>
+            <View>
+                <Image source={{uri: "https://flagcdn.com/w320/be.png",}} />
+            </View>
+            <View>
+                <Text>
+                    Voici quelques informations intéressantes au sujet de ce pays :
+                    1)Ce pays est positionné en : [subregion]
+                    2)Capital : [capital]
+                    3)langues courantes du pays : [fr] , [ndls] , [eng]
+                    4)[Belgique ] compte [population] habitants
+                    5) On a un fuseau horaire de : [UTC+01:00]
+                </Text>
+            </View>
+            <MyButtonText>
+                Google Maps
+            </MyButtonText>
+            <MyButtonText>
+                OpenStreetMap
+            </MyButtonText>
 

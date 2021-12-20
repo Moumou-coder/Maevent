@@ -1,5 +1,5 @@
 import {createSlice} from "@reduxjs/toolkit";
-import {doc, setDoc, deleteDoc} from "firebase/firestore";
+import {deleteDoc, doc, setDoc} from "firebase/firestore";
 import {db} from "../../firebase-config";
 
 
@@ -11,11 +11,12 @@ export const eventSlice = createSlice({
     reducers: {
         postEvent: (state, action) => {
             state.arrayState = [...state.arrayState, action.payload]
-            setDoc(doc(db, "event", action.payload.id),{
+            setDoc(doc(db, "event", action.payload.id), {
                 id: action.payload.id,
                 title: action.payload.title,
                 image: action.payload.image,
                 address: action.payload.address,
+                country: action.payload.country,
                 date: action.payload.date,
                 hours: action.payload.hours,
                 price: action.payload.price,
@@ -27,7 +28,7 @@ export const eventSlice = createSlice({
         },
         deleteEvent: (state, action) => {
             state.arrayState = state.arrayState.filter(oneEvent => oneEvent.id !== action.payload)
-            deleteDoc(doc(db, "event", action.payload )).then();
+            deleteDoc(doc(db, "event", action.payload)).then();
         }
     }
 });

@@ -1,24 +1,12 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import {Image, StyleSheet, TouchableOpacity, View} from 'react-native';
 import {MaterialIcons} from '@expo/vector-icons';
-import MyCard from "../components/MyCard";
-import {getAuth} from "firebase/auth";
-import {app, db} from '../firebase-config'
-import { doc, getDoc } from "firebase/firestore";
 import {ListOfEvent} from "../components/ListOfEvent";
-import {useSelector} from "react-redux";
 
 const HomeScreen = props => {
-
     //Navigations
     const addingEvent = () => {
         props.navigation.navigate('AddEvent')
-    }
-    const detailsEvent = () => {
-        props.navigation.navigate('DetailsEvent')
-    }
-    const comments = () => {
-        props.navigation.navigate('Comments')
     }
 
     return (
@@ -30,9 +18,11 @@ const HomeScreen = props => {
                     <MaterialIcons name="add-circle-outline" size={30} color="black"/>
                 </TouchableOpacity>
             </View>
-            {/*TODO: créer une flatlist pour les card*/}
-            {/*todo: modal comment */}
-                <ListOfEvent nav={props} />
+            <View style={styles.listEventContainer}>
+                <ListOfEvent
+                    nav={props}
+                />
+            </View>
         </View>
     );
 }
@@ -43,10 +33,17 @@ const styles = StyleSheet.create({
     },
     headerContainer: {
         flexDirection: 'row',
-        justifyContent: 'space-around',
-        marginTop: 50,
-        marginBottom: 50
+        justifyContent: 'space-between',
+        marginHorizontal: 15,
+        marginTop: 35,
+        marginBottom: 5,
+        borderBottomWidth: 1,
+        borderBottomColor: '#dcdcdc',
+        paddingBottom: 10,
     },
+    listEventContainer: {
+        marginBottom: 140
+    }
 });
 
 export default HomeScreen;

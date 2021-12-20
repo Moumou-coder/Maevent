@@ -1,13 +1,13 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Dimensions, ImageBackground, ScrollView, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-import {Entypo, FontAwesome, Ionicons, Octicons} from '@expo/vector-icons';
+import {AntDesign, Entypo, FontAwesome, Ionicons, Octicons} from '@expo/vector-icons';
 import {Caption, Title} from "react-native-paper";
 import colors from "../constants/colors";
 import MyButton from "../components/MyButton";
 import {useDispatch} from "react-redux";
 import {deleteEvent} from "../features/event/eventSlice";
 import {db} from '../firebase-config'
-import { collection, query, where, getDocs } from "firebase/firestore";
+import {collection, getDocs, query, where} from "firebase/firestore";
 
 const deviceHeight = Dimensions.get('window').height
 
@@ -27,9 +27,14 @@ const DetailsEventScreen = props => {
     // passage des de paramètres par navigation
     const superEventObject = props.route.params;
     //navigations
-    const goBack = () =>{
+    const goBack = () => {
         props.navigation.goBack();
     }
+    //todo: supprimer du details screen et mettre dans home directement
+    const [isFavClicked, setIsFavClicked] = useState(false);
+    const onToggleFav = () => setIsFavClicked(!isFavClicked);
+    // console.log(isFavClicked)
+
     return (
         <ScrollView>
             <View style={styles.screenContainer}>
@@ -38,14 +43,15 @@ const DetailsEventScreen = props => {
                         <View style={styles.contentPosterContainer}>
                             {/*todo: ajouter icon heart quand c'est deja rajoutee ou lors du clickEvent*/}
                             <TouchableOpacity style={styles.backButton} onPress={() => goBack()}>
-                                <Ionicons name="arrow-back" size={35} color={colors.white} />
+                                <Ionicons name="arrow-back" size={35} color={colors.white}/>
                             </TouchableOpacity>
-                            <TouchableOpacity style={styles.likeButton}>
-                                <FontAwesome name="heart-o" size={35} color={colors.white} />
+                            <TouchableOpacity style={styles.likeButton} onPress={onToggleFav}>
+                                {isFavClicked ? <AntDesign name="heart" size={35} color="red"/> :
+                                    <FontAwesome name="heart-o" size={35} color={'red'}/>}
                             </TouchableOpacity>
                             <TouchableOpacity style={styles.locationContent} activeOpacity={0.5}>
                                 <Entypo name="location-pin" size={24} color={colors.white}/>
-                                <Text style={styles.txtLocation}> 0 km away</Text>
+                                <Text style={styles.txtLocation}>{superEventObject.address}</Text>
                             </TouchableOpacity>
                             <View style={{marginLeft: 5}}>
                                 <Title style={styles.posterTxt}> {superEventObject.title} </Title>
@@ -79,19 +85,10 @@ const DetailsEventScreen = props => {
                 <View style={styles.descriptionContainer}>
                     <Text style={{color: '#696969'}}> {superEventObject.description} </Text>
                 </View>
-                {/*todo: ajouter les fonctionnalités correspondantes + navigation*/}
                 <View style={styles.buttonContainer}>
                     <MyButton
-                        onPress={() => {
-                            console.log("edit")
-                        }}
-                        style={{width: 150,}}
-                    >
-                        Edit
-                    </MyButton>
-                    <MyButton
                         onPress={deleteThisEvent}
-                        style={{backgroundColor: colors.danger, width: 150,}}
+                        style={styles.deleteBtn}
                     >
                         delete
                     </MyButton>
@@ -170,17 +167,23 @@ const styles = StyleSheet.create({
         marginTop: 15,
     },
     buttonContainer: {
-        marginTop: 20,
-        flexDirection: 'row',
+        marginTop: 30,
         width: '90%',
-        justifyContent: 'space-around'
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    deleteBtn: {
+        backgroundColor: colors.danger,
+        width: 200,
+        fontSize: 16,
+        fontWeight: 'bold'
     },
     likeButton: {
         position: 'absolute',
         right: 30,
         top: 30,
     },
-    backButton:{
+    backButton: {
         position: 'absolute',
         left: 15,
         top: 25,
