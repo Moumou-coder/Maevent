@@ -264,13 +264,6 @@ const AddEventScreen = props => {
                                 multiline={true}
                             />
                         </View>
-                        {/*TODO: ajouter google maps - l'endroit apparait quand on rajoute une adresse dans la input adress (dynamiquement)*/}
-                        <View style={styles.inputContainer}>
-                            <Text> Google Maps ( localisation )</Text>
-                            <View style={styles.poster}>
-                                <Image source={require('../assets/GoogleMaps.png')} style={styles.img}/>
-                            </View>
-                        </View>
                     </View>
                     <View style={styles.buttonsContainer}>
                         <View style={{marginRight: 20}}>

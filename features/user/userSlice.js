@@ -1,9 +1,9 @@
 import {createSlice} from "@reduxjs/toolkit";
-import {doc, deleteDoc} from "firebase/firestore";
+import {deleteDoc, doc} from "firebase/firestore";
 import {db} from "../../firebase-config";
 
 
-const initialStateValue = { email: "", pseudo : ""};
+const initialStateValue = {email: "", pseudo: ""};
 
 export const userSlice = createSlice({
     name: "user",

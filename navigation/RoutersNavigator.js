@@ -10,13 +10,12 @@ import DetailsEventScreen from "../screen/DetailsEventScreen";
 import AddEventScreen from "../screen/AddEventScreen";
 import ProfileScreen from "../screen/ProfileScreen";
 import SettingScreen from "../screen/SettingScreen";
-import CommentsScreen from "../screen/CommentsScreen";
 import CountryScreen from "../screen/CountryScreen";
 
 
 //Import Constant colors
 import colors from "../constants/colors";
-import {Entypo, FontAwesome, MaterialCommunityIcons} from '@expo/vector-icons';
+import {Entypo, MaterialCommunityIcons} from '@expo/vector-icons';
 
 //screenOptions
 const defaultScreenOptions = {
@@ -91,7 +90,6 @@ export const HomeNavigator = () => {
             <HomeStackNavigator.Screen name={"CountryInfo"} component={CountryScreen}/>
             <HomeStackNavigator.Screen name={"DetailsEvent"} component={DetailsEventScreen}/>
             <HomeStackNavigator.Screen name={"AddEvent"} component={AddEventScreen}/>
-            <HomeStackNavigator.Screen name={"Comments"} component={CommentsScreen}/>
         </HomeStackNavigator.Navigator>
     );
 }
